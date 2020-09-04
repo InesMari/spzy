@@ -1,0 +1,159 @@
+page{
+  /* padding-bottom: 160rpx;
+  height: calc(100% + 160rpx); */
+  height: 100%;
+  box-sizing: border-box;
+}
+.sroll{
+  height: 100%;
+}
+swiper{
+  height: 400rpx;
+}
+swiper-item{
+  height: 100%;
+}
+swiper image{
+  height: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.banner{
+  position: relative;
+}
+/* banner搜索框 */
+.suspension{
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  padding:20rpx 10rpx 20rpx 30rpx;
+  box-sizing: border-box;
+  top:0;
+  left: 0;
+}
+.suspension .search-box{
+  width: calc(100% - 100rpx);
+  float: left;
+  height: 80rpx;
+  border-radius: 50rpx;
+  padding: 0 80rpx 0 100rpx;
+  background: rgba(255,255,255,0.3);
+  box-sizing: border-box;
+  position: relative;
+}
+.suspension .search-box input{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.suspension .search-box .search-icon{
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.suspension .search-box .scan-icon{
+  position: absolute;
+  left: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 信息 */
+.msg{
+  position: relative;
+  width: 90rpx;
+}
+.msg .msg-icon{
+  width:80rpx;
+}
+.msg .num{
+  position: absolute;
+  top:3rpx;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  background: red;
+  color:#fff;
+  border-radius: 50%;
+  font-size: 24rpx;
+}
+.h-title{
+  padding: 50rpx 40rpx 30rpx;
+  font-size: 32rpx;
+  color:#333;
+}
+/* 产品介绍 */
+.product-list{
+  background: #fff;
+  padding:20rpx 0 30rpx;
+}
+.product-list .item{
+  float: left;
+  text-align: center;
+  width: 25%;
+  position: relative;
+}
+.product-list image{
+  display: inline-block;
+  width: 70rpx;
+  height: 70rpx;
+}
+.product-list .text{
+  line-height: 1;
+}
+/* 快递弹窗 */
+.expressAlert .tips{
+  padding:15rpx 30rpx;
+}
+.expressAlert .tips-item .label{
+  color: #666;
+  line-height: 60rpx;
+  width: 130rpx;
+  text-align: left;
+}
+.expressAlert .tips-item .text{
+  line-height: 60rpx;
+  width: calc(100% - 130rpx);
+}
+
+.order-list{
+  padding-bottom: 160rpx
+}
+.order-list .item{
+  background: #fff;
+  margin-bottom: 30rpx;
+  padding: 30rpx 40rpx;
+  border-bottom: 1rpx solid #dee2e9;
+}
+
+.advertising{
+  margin-top: 30%;
+}
+.advertising .ad{
+  width: 80%;
+  margin:0 auto;
+}
+.advertising .close{
+  width: 70rpx;
+  margin: 30rpx auto 0;
+}
+
+/* 登录 */
+.toLogin{
+  background: #fff;
+  border-bottom: 1px solid #dee2e9;
+  padding-top: 50rpx;
+}
+.toLogin .text{
+  font-size: 30rpx;
+  text-align: center;
+}
+.toLogin .b-btn{
+  width: 280rpx;
+  margin: 50rpx auto;
+}

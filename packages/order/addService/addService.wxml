@@ -1,0 +1,65 @@
+<view class='comlist mt_20' wx:if="{{info.warehouseNature!=4}}">
+  <view class='item'>
+    <view class='label label-state'>
+      <view class="fs30">货物保价</view>
+      <view class="fs20">(建议足额保价)</view>
+    </view>
+    <view class='input-text'>
+      <input placeholder="请输入保价总额{{maxLowestCost.maxLowestCost?'，最高'+maxLowestCost.maxLowestCost:''}}" value="{{info.goodsPriceDouble}}" data-key="goodsPriceDouble" bindinput="inputSetData" bindblur="checkValue" type="digit"></input>
+    </view>
+    <view class="unit">元</view>
+  </view>
+</view>
+<headerRemind wx:if="{{info.warehouseNature!=4}}">投保说明：未保价物品，将按运费的3倍进行赔偿。</headerRemind>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>代收货款</view>
+    <view class='input-text'>
+      <input placeholder="请输入代收金额{{maxLowestCost.maxCost?'，最高'+maxLowestCost.maxCost:''}}" value="{{info.collectingMoneyDouble}}" data-key="collectingMoneyDouble" bindinput="inputSetData" bindblur="checkValue" type="digit"></input>
+    </view>
+    <view class="unit">元</view>
+  </view>
+</view>
+<headerRemind>说明：代收货款将根据代收金额收取{{maxLowestCost.handlingFee}}%的服务费，保底{{maxLowestCost.mimCost}}元收费。</headerRemind>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>货品数量</view>
+    <view class='input-text'>
+      <input placeholder="请输入货品总数量" value="{{info.goodsCount}}" data-key="goodsCount" bindinput="inputSetData" type="number"></input>
+    </view>
+  </view>
+</view><view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>回单类型</view>
+    <view class='input-text'>
+      <picker mode="selector" range="{{receiptList}}" bindchange="receiptChange" range-key="codeName"
+        value="{{receiptIndex}}">
+        <view wx:if="{{receiptList.length !=0 &&receiptIndex!=null}}">
+          {{receiptList[receiptIndex].codeName}}
+        </view>
+        <view class="zt_999" wx:else>请选择回单类型</view>
+      </picker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+<view class='comlist mt_20' wx:if="{{userType==2&&ordNumRule.showView&&!ordNumRule.checkRequired}}">
+  <view class='item'>
+    <view class='label'>客户单号</view>
+    <view class='input-text'>
+      <input placeholder="请输入客户单号，多个用逗号隔开" value="{{info.ordNum}}" data-key="ordNum" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20' wx:if="{{userType==2&&purchaseNumRule.showView&&!purchaseNumRule.checkRequired}}">
+  <view class='item'>
+    <view class='label'>采购单号</view>
+    <view class='input-text'>
+      <input placeholder="请输入采购单号" value="{{info.purchaseNum}}" data-key="purchaseNum" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class="page-bottom-btn">
+  <button class="cancel fl" bindtap="back">取消</button>
+  <button class="sure fr" bindtap="sure">确认</button>
+</view>

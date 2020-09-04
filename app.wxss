@@ -1,0 +1,45 @@
+@import './common/css/base.wxss';
+@import './common/css/comlist.wxss';
+
+/* 页面tab选项栏 */
+.common-tab{
+  display: flex;
+  background: #fff;
+}
+
+.common-tab .item{
+  flex: 1;
+  display: flex;
+  height: 100rpx;
+  font-size: 26rpx;
+  justify-content: center;
+  align-items: center;
+  border-bottom:1rpx solid #dee2e9;
+}
+
+.common-tab .item.active{
+  color:#ff6600;
+  position: relative;
+}
+
+.common-tab .item.active::before{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  height: 2rpx;
+  background: #ff6600;
+  z-index: 99;
+}
+/* 页面tab选项栏 end*/
+/* 遮罩层 */
+.popup{
+  position: fixed;
+  top:0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+}

@@ -1,0 +1,8 @@
+.comlist .item.img-item .img-box{
+  width: calc(100% - 180rpx);
+}
+.comlist .item .textarea textarea {
+  font-size: 30rpx;
+  padding: 28rpx 0;
+  height: 250rpx;
+}

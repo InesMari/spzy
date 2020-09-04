@@ -1,0 +1,21 @@
+.name{
+  text-align: center;
+  margin: 20% auto 10%;
+  height: 100rpx;
+  line-height:100rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #1089db;
+  letter-spacing:5rpx;
+}
+.input-text .unit{
+  font-size: 28rpx;
+  color: #1C67B0;
+  text-decoration: underline;
+  line-height: 90rpx;
+  position: absolute;
+  right: 30rpx;
+  top:0;
+  z-index: 9;
+}
+

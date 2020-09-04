@@ -1,0 +1,15 @@
+<view class="name">{{companyName}}</view>
+<view class="list">
+  <view class="item fl">
+    <input bindinput="inputSetData" maxlength="1" data-key="name1" placeholder=""></input>
+  </view>
+  <view class="item fr">
+    <input bindinput="inputSetData" focus="{{name2focus}}" maxlength="1" data-key="name2" placeholder=""></input>
+  </view>
+</view>
+<view class="tips">请依次输入上面*隐藏的公司名</view>
+<view class="page-bottom-btn">
+  <button class="sure fl" wx:if="{{!showPhoneNumber}}" bindtap="checkInput">点击验证</button>
+  <button class="sure fl" wx:if="{{showPhoneNumber}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击验证</button>
+  <button class="success fr" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumberLogin">已有账号</button>
+</view>

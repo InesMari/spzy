@@ -1,0 +1,45 @@
+.n-ch {
+  border: 1px solid #d6dbe2;
+  position: relative;
+  float: left;
+  margin: 0 20rpx 20rpx 0;
+}
+.n-ch::before {
+  background: #d6dbe2;
+  height: 1px;
+  top: 50%;
+  left: 20%;
+  width: 60%;
+  position: absolute;
+  content: '';
+}
+.n-ch::after {
+  background: #d6dbe2;
+  width: 1px;
+  top: 20%;
+  left: 50%;
+  height: 60%;
+  position: absolute;
+  content: '';
+}
+
+.p-ch {
+  border: 1px solid #d6dbe2;
+  position: relative;
+  margin: 0 20rpx 20rpx 0;
+  float: left;
+}
+.none_border{
+  border:none;
+}
+
+.remove{
+  top:-22rpx;
+  width:30rpx;
+  height:30rpx;
+  right:0rpx;
+  color:#fff;
+  border-radius:50%;
+  position:absolute;
+  text-align:center;
+}

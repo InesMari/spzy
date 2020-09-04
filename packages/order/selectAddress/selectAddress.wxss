@@ -1,0 +1,78 @@
+.search{
+  padding: 0 24rpx 0 100rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #dee2e9;
+  position: relative;
+}
+.search image{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 35rpx;
+  left: 30rpx;
+}
+.search input{
+  height: 110rpx;
+  font-size: 30rpx;
+  width: 100%;
+}
+.addressList{
+  padding-bottom: 150rpx;
+
+}
+.addressList .item{
+  padding: 0 30rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #dee2e9;
+  margin-bottom: 20rpx;
+}
+.addressList .item .name{
+  line-height: 90rpx;
+  font-size: 30rpx;
+}
+.addressList .item .name .edit{
+  line-height: 90rpx;
+  color:#999;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+}
+.addressList .item.selected{
+  background: #f8f8f8;
+}
+.addressList .item.selected .name .edit{
+  color: #ff6600;
+}
+.addressList .item .name .edit image{
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  display: inline-block;
+  margin: -4rpx 4rpx 0 0;
+}
+.addressList .item .info{
+  padding:30rpx 0;
+  border-top:1rpx solid #dee2e9;
+}
+.addressList .item .info .linkman{
+  font-size: 26rpx;
+  line-height: 1;
+  margin-bottom: 20rpx;
+}
+.addressList .item .info .site{
+  font-size: 24rpx;
+  line-height: 1;
+}
+.fix-btn{
+  position: fixed;
+  width: 100%;
+  padding: 30rpx 20rpx;
+  background: #fff;
+  border-top: 1rpx solid #dee2e9;
+  z-index: 99;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+}
+.fix-btn .page-bottom-btn,.fix-btn .b-btn {
+  margin: 0;
+}

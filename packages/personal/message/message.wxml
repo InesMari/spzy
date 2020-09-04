@@ -1,0 +1,27 @@
+
+<picker mode="date" bindchange="bindDateChange" fields="month" start="2020-01-01">
+  <view class="picker">
+    选择月份：{{date}}
+  </view>
+</picker>
+<view class="item {{item.pushState==3?'read':''}}" wx:for="{{list}}" wx:key="{{index}}" data-item="{{item}}" bindtap="toDetail">
+  <view class="info clearfix">
+    <view class="title fl zt_666">{{item.newsTitle}}</view>
+    <view class="time fr zt_999">{{item.createDate}}</view>
+  </view>
+  <view class="content">{{item.pushContent}}，点击查看详情</view>
+</view>
+<!-- <view class="item">
+  <view class="info clearfix">
+    <view class="title fl zt_666">揽件通知</view>
+    <view class="time fr zt_999">2019-10-11 12:00</view>
+  </view>
+  <view class="content">您的运单号<text>20190399302</text>已揽件，点击查看详情</view>
+</view>
+<view class="item">
+  <view class="info clearfix">
+    <view class="title fl zt_666">揽件通知</view>
+    <view class="time fr zt_999">2019-10-11 12:00</view>
+  </view>
+  <view class="content">您的运单号<text>20190399302</text>已揽件，点击查看详情</view>
+</view> -->

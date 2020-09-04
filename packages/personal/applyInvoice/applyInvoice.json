@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "headerRemind": "/common/components/header-remind/headerRemind"
+  },
+  "navigationBarTitleText": "申请开票"
+}

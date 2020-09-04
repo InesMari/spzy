@@ -1,0 +1,43 @@
+<view class="login-btn">
+  <image class="logo" mode="widthFix" src="/common/images/u3514.png"></image>
+  <view class="phoneLogin" wx:if="{{isPhoneLogin||userList.length>1}}">
+    <view class="form">
+      <view class="input-text">    
+        <input bindinput="inputSetData" disabled="{{userList.length>1}}" data-key="userLogin" placeholder="请输入手机号码"></input>
+      </view>
+      <view class="input-text">    
+        <input bindinput="inputSetData" disabled="{{userList.length>1}}" data-key="smsCode" placeholder="请输入验证码"></input>
+        <view class="unit" bindtap="getSmsCode" wx:if="{{!isGetSmsCode&&userList.length==0}}">获取验证码</view>
+        <view class="unit" wx:if="{{isGetSmsCode&&userList.length==0}}">{{cutdown}}s</view>
+      </view>
+      <view class="input-text" wx:if="{{userList.length>1}}">    
+        <picker mode="selector" range="{{userList}}" bindchange="userListChange" range-key="name" value="{{userListIndex}}">
+        <view wx:if="{{userList.length !=0 &&userListIndex!=null}}">
+          {{userList[userListIndex].name}}
+        </view>
+        <view class="zt_999" wx:else>{{shopType==3||shopType==6?'请选择店铺':''}}{{shopType==5?'请选择经销商':''}}</view>
+      </picker>
+      </view>
+    </view>
+  </view>
+  <button class="b-btn warn" bindtap="shopLogin" wx:if="{{userList.length>1}}">{{shopType==3||shopType==6?'登录店铺':''}}{{shopType==5?'登录经销商':''}}</button>
+  <block wx:if="{{userList.length==0}}">
+    <button class="b-btn success pay-btn mt_20" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" disabled="{{!isLogin}}"><image src="/common/images/u3024.png"></image>微信一键登录</button>
+    <button class="b-btn warn" bindtap="codeLogin">手机验证码登录</button>
+  </block>
+</view>
+<!-- 验证码登录 -->
+<!-- <view class="phoneLogin" wx:if="{{isShowPhoneLogin}}">
+  <view class="form">
+    <view class="input-text">    
+      <input bindinput="inputSetData" data-key="userLogin" placeholder="请输入手机号码"></input>
+    </view>
+    <view class="input-text">    
+      <input bindinput="inputSetData" data-key="smsCode" placeholder="请输入验证码"></input>
+      <view class="unit" bindtap="getSmsCode" wx:if="{{!isGetSmsCode}}">获取验证码</view>
+      <view class="unit" wx:if="{{isGetSmsCode}}">{{cutdown}}s</view>
+    </view>
+  </view>
+  <button class="b-btn warn" bindtap="codeLogin">登录</button>
+</view>
+<view class="popup_bj" bindtap="phoneLogin" wx:if="{{isShowPhoneLogin}}"></view> -->

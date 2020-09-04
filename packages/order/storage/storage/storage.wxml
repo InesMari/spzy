@@ -1,0 +1,75 @@
+<view class="search-box mt_20 clearfix">
+  <image mode="widthFix" class="search-icon" src="/common/images/u910.png"></image>
+  <image mode="widthFix" class="scan-icon" src="/common/images/u1878.png"></image>
+  <input placeholder="请输入单号/供应商/调出店仓/订单类型查询"></input>
+</view>
+<view class="list mt_20">
+  <view class="item">
+    <view class="item-title clearfix">
+      <view class="state fl">采购入库</view>
+      <view class="fl">
+        <view class="orderNum">CG02018013100001</view>
+        <view class="time">4月12日 14：00</view>
+      </view>
+      <view class="arriveTime fr">预计到达4月15日</view>
+    </view>
+    <view class="info-list">
+      <view class="info-item clearfix">
+        <view class="info-label">供应商</view>
+        <view class="info-text">卡丹路制造</view>
+      </view>
+      <view class="info-item clearfix">
+        <view class="info-label">采购类型</view>
+        <view class="info-text">正常采购</view>
+      </view>
+    </view>
+    <view class="bottom-list">
+      <view class="bottom-item">
+        <image src="/common/images/u1888.png"></image>
+        <text>跟踪</text>
+      </view>
+      <view class="bottom-item" bindtap="toDetail">
+        <image src="/common/images/u1884.png"></image>
+        <text>明细</text>
+      </view>
+      <view class="bottom-item">
+        <image src="/common/images/u1886.png"></image>
+        <text>入库</text>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-title clearfix">
+      <view class="state fl">采购入库</view>
+      <view class="fl">
+        <view class="orderNum">CG02018013100001</view>
+        <view class="time">4月12日 14：00</view>
+      </view>
+      <view class="arriveTime fr">预计到达4月15日</view>
+    </view>
+    <view class="info-list">
+      <view class="info-item clearfix">
+        <view class="info-label">供应商</view>
+        <view class="info-text">卡丹路制造</view>
+      </view>
+      <view class="info-item clearfix">
+        <view class="info-label">采购类型</view>
+        <view class="info-text">正常采购</view>
+      </view>
+    </view>
+    <view class="bottom-list">
+      <view class="bottom-item">
+        <image src="/common/images/u1888.png"></image>
+        <text>跟踪</text>
+      </view>
+      <view class="bottom-item">
+        <image src="/common/images/u1884.png"></image>
+        <text>明细</text>
+      </view>
+      <view class="bottom-item">
+        <image src="/common/images/u1886.png"></image>
+        <text>入库</text>
+      </view>
+    </view>
+  </view>
+</view>

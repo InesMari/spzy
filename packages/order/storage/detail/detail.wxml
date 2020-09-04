@@ -1,0 +1,5 @@
+<view class="search-box mt_20 clearfix">
+  <image mode="widthFix" class="search-icon" src="/common/images/u910.png"></image>
+  <image mode="widthFix" class="scan-icon" src="/common/images/u1878.png"></image>
+  <input placeholder="请输入单号/供应商/调出店仓/订单类型查询"></input>
+</view>

@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/verification/verification",
+    "pages/authorize/authorize",
+    "pages/scanReg/scanReg"
+  ],
+  "subPackages": [
+    {
+      "root": "packages/fee",
+      "pages": [
+        "feeCalc/feeCalc"
+      ]
+    },
+    {
+      "root": "packages/order",
+      "pages": [
+        "billing/billing",
+        "orderList/orderList",
+        "addService/addService",
+        "selectAddress/selectAddress",
+        "editAddress/editAddress",
+        "storage/storage/storage",
+        "storage/detail/detail",
+        "orderPay/orderPay",
+        "orderDetail/orderDetail"
+      ]
+    },
+    {
+      "root": "packages/personal",
+      "pages": [
+        "personal/personal",
+        "cardList/cardList",
+        "payHistory/payHistory",
+        "addClerk/addClerk",
+        "applyInvoice/applyInvoice",
+        "invoiceHistory/invoiceHistory",
+        "suggest/suggest",
+        "message/message"
+      ]
+    },
+    {
+      "root": "packages/other",
+      "pages": [
+        "discount/discount",
+        "discountDetail/discountDetail"
+      ]
+    },
+    {
+      "root": "packages/agreement",
+      "pages": [
+        "agreement"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f0f5fb"
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.4",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,69 @@
+<headerRemind >单位、联系人输入任意其中一项即可</headerRemind>
+<view class='comlist'>
+  <view class='item  company'>
+    <view class='label'><text class="red">*</text>单位</view>
+    <view class='input-text'>
+      <input class="name" value="{{info.warehouseFullName}}" data-key="warehouseFullName" bindinput='inputSetData' placeholder="单位名称或店铺名称"></input>
+      <input class="linkman" value="{{info.warehousePeople}}" data-key="warehousePeople" bindinput='inputSetData' placeholder="联系人"></input>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>手机</view>
+    <view class='input-text'>
+      <input value="{{info.warehousePhone}}" data-key="warehousePhone" bindinput='inputSetData' placeholder="请输入手机号或座机号" type="number" style="width:calc(100% - 140rpx)"></input>
+        <view class="unit" bindtap="getSmsCode" wx:if="{{!isGetSmsCode&&isScan}}">获取验证码</view>
+        <view class="unit" wx:if="{{isGetSmsCode&&isScan}}">{{cutdown}}s</view>
+    </view>
+  </view>
+  <view class='item' wx:if="{{isScan}}">
+    <view class='input-text' style="margin:0;">
+      <input value="{{info.smsCode}}" data-key="smsCode" bindinput='inputSetData' placeholder="请输入验证码" type="number"></input>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>省市区</view>
+    <view class='input-text'>
+      <!-- <input placeholder=""></input> -->
+      <regionPicker id="regionPicker" fields="CITY" class='rp1' placeholder="选择省市区" bindchange="regionChange" value='{{regionIds}}'></regionPicker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+  <view class='item fullInput'>
+    <view class='input-text'>
+      <input value="{{info.warehouseAddress}}" data-key="warehouseAddress" bindinput='inputSetData' placeholder="输入街道/门牌号等信息"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20' wx:if="{{userType == 4}}">
+  <view class='item item-justify'>
+    <view class='label'>设为默认地址</view>
+    <view class="fr">
+      <switch checked="{{info.isDefault}}" data-key="isDefault" bindchange="switchChange" style='zoom:.6;'/>
+    </view>
+  </view>
+</view>
+<view class="selectView clearfix">
+  <!-- <radio-group class="fl radioGroup">
+    <radio class="mr_20" label="1">保存为寄件人</radio>
+    <radio label="0">保存为收件人</radio>
+  </radio-group> -->
+  <button class="btn fr" bindtap="cleanSite">清空地址</button>
+</view>
+<view class="discern-area">
+  <!-- <textarea placeholder="请粘贴或复制输入一整段寄件人信息，例如：张三，13810000000，广州市花都区东升路5号卡丹路工业园" value="{{info.recordInfo}}" data-key="recordInfo" bindinput='inputSetData' ></textarea> -->
+  <n-textarea placeholder="请粘贴或复制输入一整段寄件人信息，例如：张三，13810000000，广州市花都区东升路5号卡丹路工业园" data-key="recordInfo" bindinput="inputSetData" value="{{info.recordInfo}}" nStyle="line-height:60rpx;height: 200rpx;" />
+  <view class="discern clearfix">
+    <view class="fl">
+      <!-- <image class="photo" src="/common/images/u1017.png"></image> -->
+      <image bindtap="record" class="voice" src="/common/images/u1015.png"></image>
+    </view>
+    <button class="btn discern-btn fr" bindtap="distinguish">识别</button>
+  </view>
+</view>
+<button class="b-btn" bindtap="save">确认</button>
+<!-- 拒绝订单弹窗 -->
+<alert id="alertRecord" isshow="{{isShowRecord}}" title="语音输入">
+  <image class="recordIcon" wx:if="{{!isRecord}}" src="/common/images/record1.png"></image>
+  <image class="recordIcon" wx:if="{{isRecord}}" src="/common/images/record2.png"></image>
+  <button class="b-btn" bind:touchstart="startRecord" bind:touchend="endRecord">{{recordBtnText}}</button>
+</alert>

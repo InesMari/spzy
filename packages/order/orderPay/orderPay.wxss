@@ -1,0 +1,12 @@
+@import '/packages/order/order.wxss';
+
+.pay-btn{
+  background: #0aac2c;
+}
+.pay-btn image{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10rpx;
+  width: 50rpx;
+  height: 50rpx;  
+}

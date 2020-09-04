@@ -1,0 +1,492 @@
+
+<wxs src="../../../common/wxs/format.wxs" module="format"></wxs>
+<block wx:if="{{!showSwiper}}">
+<headerRemind wx:if="{{userType==2&&isUserWx&&!editOrder}}" bindtap="changeUser">您目前为企业寄件，如需个人寄件请点此处切换到个人账号。</headerRemind>
+<view wx:if="{{userType==4&&isClient&&!editOrder}}" class="headerRemindBlock">
+  <headerRemind bindtap="changeUser">您目前为个人寄件，如需企业寄件请点此处切换到企业账号。</headerRemind>
+  <picker mode="selector" wx:if="{{userList.length>1}}" range="{{userList}}" bindchange="userListChange" range-key="name" value="{{userListIndex}}">
+    <view></view>
+  </picker>
+</view>
+<view class='comlist mt_20' wx:if="{{userType==2}}">
+  <view class='item'>
+    <view class='label'><text class="red">*</text>运单类型</view>
+    <view class='input-text'>
+      <picker mode="selector" range="{{orderTypeList}}" bindchange="orderTypeChange" range-key="codeName"
+        value="{{orderTypeIndex}}">
+        <view wx:if="{{orderTypeList.length !=0 &&orderTypeIndex!=null}}">
+          {{orderTypeList[orderTypeIndex].codeName}}
+        </view>
+        <view class="zt_999" wx:else>请选择运单类型</view>
+      </picker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class="item address clearfix">
+    <view class="text-icon ji fl">寄</view>
+    <view class='label' wx:if="{{!info.sourceProvince}}"><text class="red">*</text>寄件人地址</view>
+    <view class='input-text' wx:if="{{info.sourceProvince}}" bindtap="toEditAddress" data-type="1">
+      <view class="fs_26">{{info.consignorName}}  {{info.consignorLinkmanName}}  {{info.consignorBill?info.consignorBill:info.consignorTelephone}}</view>
+      <view class="fs_26">{{info.sourceAddressName}}</view>
+    </view>
+    <view class="fs30 zt_999" style="height:110rpx;" wx:if="{{!info.sourceProvince}}" bindtap="toEditAddress" data-type="1"></view>
+    <image class="address-icon" catchtap="toSelectAddress" data-type="1" src="/common/images/u511.png"></image>
+  </view>
+  <view class="item address clearfix">
+    <view class="text-icon fl" style="background:#f67317;">收</view>
+    <view class='label' wx:if="{{!info.destProvince}}"><text class="red">*</text>收件人地址</view>
+    <view class='input-text' wx:if="{{info.destProvince}}" bindtap="toEditAddress" data-type="2">
+      <view class="fs_26">{{info.consigneeName}}  {{info.consigneeLinkmanName}}  {{info.consigneeBill?info.consigneeBill:info.consigneeTelephone }}</view>
+      <view class="fs_26">{{info.destAddressName}}</view>
+    </view>
+    <view class="fs30 zt_999" style="height:110rpx;" wx:if="{{!info.destProvince}}" bindtap="toEditAddress" data-type="2"></view>
+    <image class="address-icon" src="/common/images/u511.png" catchtap="toSelectAddress" data-type="2"></image>
+  </view>
+</view>
+
+<view class='comlist mt_20' wx:if="{{orderTransportTypeList.length>0}}">
+  <view class='item'>
+    <view class='label'>供应商类型</view>
+    <view class='input-text'>
+      <picker mode="selector" range="{{orderTransportTypeList}}" bindchange="orderTransportTypeChange" range-key="codeName"
+        value="{{orderTransportTypeIndex}}">
+        <view wx:if="{{orderTransportTypeList.length !=0 &&orderTransportTypeIndex!=null}}">
+          {{orderTransportTypeList[orderTransportTypeIndex].codeName}}
+        </view>
+        <view class="zt_999" wx:else>请选择供应商类型</view>
+      </picker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+
+<!-- 自定义 -->
+<view class='comlist mt_20' wx:if="{{userType==2&&customize.fieldName&&warehouseNature!=4}}">
+  <view class='item'>
+    <view class='label'><text class="red" wx:if="{{customize.fieldType==1}}">*</text>{{customize.fieldName}}</view>
+    <!-- selectType 1:可选可输2:只选 -->
+    <view class='input-text' bindtap="showDiySelect" wx:if="{{customize.selectType==1}}">
+      <text wx:if="{{!info.customizeFiledValue}}" class="zt_999">请选择</text>
+      <text wx:if="{{info.customizeFiledValue}}">{{info.customizeFiledValue}}</text>
+    </view>
+    <view class='input-text' wx:if="{{customize.selectType==2}}">
+      <picker mode="selector" range="{{customize.customizeList}}" bindchange="customizeChange" range-key="enumerateName" value="{{customizeIndex}}">
+        <view wx:if="{{customize.customizeList.length !=0 &&customizeIndex!=null}}">
+          {{customize.customizeList[customizeIndex].enumerateName}}
+        </view>
+        <view class="zt_999" wx:else>请选择</view>
+      </picker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+
+<!-- 东莞客户专有逻辑 -->
+<view class='comlist mt_20' style="margin-bottom:0" wx:if="{{userType==2&&warehouseNature==4}}">
+  <view class='item'>
+    <view class='label'><text class="red">*</text>采购人员</view>
+    <view class='input-text' bindtap='showPurchaseFilter' >
+      <input value="{{purchaseShow}}" disabled="true" placeholder="请选择采购人员信息"></input>
+    </view>
+    <image class="bottom-arrow" bindtap="showDiySelect" src="/common/images/u300.png"></image>
+  </view>
+</view>
+
+<!-- 客户单号 -->
+<view class='comlist mt_20' wx:if="{{ordNumRule.showView&&ordNumRule.checkRequired}}">
+  <view class='item'>
+    <view class='label'><text class="red">*</text>客户单号</view>
+    <view class='input-text'>
+      <input placeholder="{{ordNumRule.remarks?ordNumRule.remarks:'请输入客户单号，多个用逗号隔开'}}" value="{{info.ordNum}}" data-key="ordNum" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+
+<!-- 采购单号 -->
+<view class='comlist mt_20 clearfix' wx:if="{{purchaseNumRule.showView&&purchaseNumRule.checkRequired}}">
+  <view class='item'>
+    <view class='label'><text class="red">*</text>采购单号</view>
+    <view class='input-text'>
+      <input placeholder="{{purchaseNumRule.remarks?purchaseNumRule.remarks:'输入采购单号'}}" value="{{info.purchaseNum}}" data-key="purchaseNum" bindinput="inputSetData" bindblur="checkPurchaseNum" type="number" maxlength="10"></input>
+    </view>
+  </view>
+</view>
+
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>所寄物品</view>
+    <view class='input-text' bindtap="selectGoods">
+      <text wx:if="{{!info.goodsName}}" class="zt_999">选择物品名称</text>
+      <text wx:if="{{info.goodsName}}">{{info.goodsName}}</text>      
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+
+<view class='comlist mt_20 w_c clearfix' wx:if="{{userType==4}}">
+  <view class='item'>
+    <view class='label'>总件数</view>
+    <view class='input-text'>
+      <input placeholder="输入总件数" value="{{info.packageNumber}}" data-key="packageNumber" bindinput="inputSetData" type="number"></input>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>预估重量</view>
+    <view class="fr weight">
+      <image class="fl change" bindtap="reduceWeight" src="/common/images/u308.png"></image>
+      <view class="fl num"><input value="{{info.packageWeight}}" data-key="packageWeight" bindinput="inputSetData" type="number"></input></view>
+      <image class="fl change" bindtap="addWeight" src="/common/images/u306.png"></image>
+    </view>
+  </view>
+</view>
+<view class="volumeList mt_20 clearfix" wx:if="{{userType==4}}">
+  <view class="item">
+    <view class="label">长</view>
+    <view class="input-text">
+      <input placeholder-class="placeholder-class" placeholder="厘米"  value="{{info.long}}" data-key="long" bindinput="inputCalcVolumn" type="digit"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">宽</view>
+    <view class="input-text">
+      <input placeholder-class="placeholder-class" placeholder="厘米" value="{{info.width}}" data-key="width" bindinput="inputCalcVolumn" type="digit"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">高</view>
+    <view class="input-text">
+      <input placeholder-class="placeholder-class" placeholder="厘米" value="{{info.height}}" data-key="height" bindinput="inputCalcVolumn" type="digit"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">体积</view>
+    <view class="input-text">
+      <input placeholder-class="placeholder-class" placeholder="方" value="{{info.packageVolume}}" data-key="packageVolume" bindinput="inputSetData" type="digit"></input>
+    </view>
+  </view>
+</view>
+
+<view class="volumeList volumeList2 mt_20 clearfix" wx:if="{{userType==2}}">
+  <view class="item">
+    <view class="label"><text class="red">*</text>打包件数</view>
+    <view class="input-text">
+      <input placeholder-class="placeholder-class" placeholder="件" value="{{info.packageNumber}}" data-key="packageNumber" bindinput="inputSetData" type="number"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">打包重量</view>
+    <view class="input-text">
+      <input placeholder-class="placeholder-class" placeholder="公斤" value="{{info.packageWeight}}" data-key="packageWeight" bindinput="inputSetData" type="digit"></input>
+    </view>
+  </view>
+  <view class="item">
+    <view class="label">打包体积</view>
+    <view class="input-text">
+      <input placeholder-class="placeholder-class" placeholder="方" value="{{info.packageVolume}}" data-key="packageVolume" bindinput="inputSetData" type="digit"></input>
+    </view>
+  </view>
+</view>
+
+<!-- 产品介绍 -->
+<view class="product-list mt_20 clearfix" wx:if="{{logistics.length>1}}"> 
+  <view class="item" bindtap="showTips" data-index="0" wx:if="{{logistics[0].sumCost}}">
+    <image src="/common/images/kd_active.png" wx:if="{{logistics[0].isDefault==1}}"></image>
+    <image src="/common/images/kd.png" wx:if="{{logistics[0].isDefault!=1}}"></image>
+    <view class="text">{{logistics[0].priceName}}</view>
+    <view class="text red" wx:if="{{logistics[0].sumCost}}">{{format.addrmb(logistics[0].sumCost)}}</view>
+  </view>
+  <view class="item" bindtap="showTips" data-index="1" wx:if="{{logistics[1].sumCost}}">
+    <image src="/common/images/ky_active.png" wx:if="{{logistics[1].isDefault==1}}"></image>
+    <image src="/common/images/ky.png" wx:if="{{logistics[1].isDefault!=1}}"></image>
+    <view class="text">{{logistics[1].priceName}}</view>
+    <view class="text red" wx:if="{{logistics[1].sumCost}}">{{format.addrmb(logistics[1].sumCost)}}</view>
+  </view>
+  <view class="item" bindtap="showTips" data-index="2" wx:if="{{logistics[2].sumCost && userType==4}}">
+    <image src="/common/images/wl_active.png" wx:if="{{logistics[2].isDefault==1}}"></image>
+    <image src="/common/images/wl.png" wx:if="{{logistics[2].isDefault!=1}}"></image>
+    <view class="text">{{logistics[2].priceName}}</view>
+    <view class="text red">{{format.addrmb(logistics[2].sumCost)}}</view>
+  </view>
+  <view class="item" bindtap="showTips" data-index="3" wx:if="{{logistics[3].sumCost && userType==4}}">
+    <image src="/common/images/zc_active.png" wx:if="{{logistics[3].isDefault==1}}"></image>
+    <image src="/common/images/zc.png" wx:if="{{logistics[3].isDefault!=1}}"></image>
+    <view class="text">{{logistics[3].priceName}}</view>
+    <view class="text red">{{format.addrmb(logistics[3].sumCost)}}</view>
+  </view>
+</view>
+<!-- 东莞客户专属 -->
+<view class='comlist mt_20' style="margin-bottom:0;" wx:if="{{warehouseNature==4}}">
+  <view class='item'>
+    <view class='label label-state'>
+      <view class="fs30">货物价值</view>
+      <view class="fs20" style="padding-left:30rpx;">(实际价值)</view>
+    </view>
+    <view class='input-text'>
+      <input placeholder="按货物实际交易价格填写" value="{{info.goodsPriceDouble}}" data-key="goodsPriceDouble" bindinput="inputSetData" bindblur="checkCostValue" type="digit"></input>
+    </view>
+    <view class="unit">元</view>
+  </view>
+</view>
+<headerRemind wx:if="{{warehouseNature==4}}">投保说明：未保价物品，将按运费的3倍进行赔偿。</headerRemind>
+
+<view class='comlist mt_20' wx:if="{{warehouseNature!=4}}">
+  <view class='item service'>
+    <view class='label'>增值服务</view>
+    <view class='input-text' bindtap="toAddService">
+      <view class="fs_20">
+        <text wx:if="{{info.goodsPriceDouble&&warehouseNature!=4}}">保价：¥{{info.goodsPriceDouble}}，</text>
+        <text wx:if="{{info.collectingMoneyDouble}}">代收金额：¥{{info.collectingMoneyDouble}}，</text>
+        <text wx:if="{{info.goodsCount}}">数量：{{info.goodsCount}}</text>
+      </view>
+      <view class="fs_20" wx:if="{{info.receiptTypeName}}">回单类型：{{info.receiptTypeName}}<text wx:if="{{userType==2}}">，{{info.customizeName}}</text> </view>
+      <view class="fs_20" wx:if="{{info.ordNum&&!ordNumRule.checkRequired}}">客户单号：{{info.ordNum}}</view>
+      <view class="fs_20" wx:if="{{info.purchaseNum&&!purchaseNumRule.checkRequired}}">采购单号：{{info.purchaseNum}}</view>
+    </view>
+    <!-- <view class="fs30 zt_999" wx:if="{{!info.ordNum}}" bindtap="toAddService">请填写增值服务</view> -->
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item item-br'>
+    <view class='label'>备注</view>
+    <view class='textarea'>
+      <n-textarea placeholder="可输入200字以内" data-key="customerRemarks" bindinput="inputSetData" value="{{info.customerRemarks}}" placeholderStyle="line-height:80rpx;" />
+      <!-- <textarea value="{{info.customerRemarks}}" data-key="customerRemarks" bindinput="inputSetData" ></textarea> -->
+    </view>
+  </view>
+</view>
+
+<view class='comlist mt_20'>
+  <view class='item item-justify'>
+    <view class='label'>期待上门时间</view>
+    <view class='input-text'>
+      <timeRangePicker bindchange="getTimeRange" value="{{info.prePickupDateShow}}" dayRange='15'></timeRangePicker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+
+<view class='comlist mt_20' wx:if="{{userType==2&&isJudge}}" style="margin-bottom:0;">
+  <view class='item item-justify'>
+    <checkbox-group bindchange="triplePaymentChange">
+      <label>
+        <checkbox value="{{info.triplePayment}}" checked="{{triplePayment}}"/>三方结算
+      </label>
+    </checkbox-group>
+  </view>
+  <view class='item' wx:if="{{triplePayment}}">
+    <view class='label'><text class="red">*</text>结算门店</view>
+    <view class='input-text' bindtap="payConsignorNameShow">
+      <text wx:if="{{info.payConsignorName}}">{{info.payConsignorName}}</text>
+      <text wx:if="{{!info.payConsignorName}}" class="zt_999">请选择门店</text>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+  <headerRemind class="mb_20" wx:if="{{triplePayment}}">三方门店结算运单需所选择的门店确认后方可成功。</headerRemind>
+</view>
+
+<view class='comlist mt_20'>
+  <view class='item item-justify'>
+    <view class='label'>预计{{info.priceName}}费用<text class="red ml_10" wx:if="{{logistics.length>0}}">{{format.addrmb(info.preOrderIncomeDouble)}}</text></view>
+    <view class='input-text' style="padding:0;">
+      <picker mode="selector" range="{{paymentTypeList}}" bindchange="paymentTypeChange" range-key="codeName" value="{{paymentTypeIndex}}">
+        <view wx:if="{{paymentTypeList.length !=0 &&paymentTypeIndex!=null}}" style="padding:0 40rpx 0 100rpx;">
+          {{paymentTypeList[paymentTypeIndex].codeName}}
+        </view>
+        <view class="zt_999" wx:else>请选择结算方式</view>
+      </picker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+<view class="plr_30 mt_20">
+  <checkbox-group bindchange="agreementChange">
+    <label>
+      <checkbox value="{{agreement}}" checked="{{agreement}}"/>我同意<text class="zt_blue" catchtap="toAgreement">《服务协议》</text>
+    </label>
+  </checkbox-group>
+</view>
+
+<button class="b-btn" disabled="{{isSave}}" bindtap="save">{{editOrder?'修改订单':'立即下单'}}</button>
+
+</block>
+
+<!-- 选择所寄物品 -->
+<view class="selectGoods" wx:if="{{isShowSelectGoods}}">
+  <view class="list clearfix">
+    <block wx:for="{{goodsList}}" wx:key="{{index}}">
+      <view class="item {{item.active?'active':''}}" data-good="{{item}}" data-index="{{index}}" bindtap="chooseGood">{{item.name}}</view>
+    </block>
+  </view>
+  <view class="other">
+    <input wx:if="{{isShowInputGood}}" value="{{info.inputGood}}" bindinput='inputGoodSetData'  class="input-text" placeholder="请输入你所寄货品名称" maxlength="10"></input>
+  </view>
+  <view class="red mt_30">温馨提示：</view>
+  <view class="red">1.禁止寄递违禁品，电池只能走陆运</view>
+  <view class="red">2.如需包装纸箱请备注，另纸箱将单独收费</view>
+  <button class="b-btn" bindtap="sureGood">确定</button>
+</view>
+<view class="popup_bj" wx:if="{{isShowSelectGoods}}" bindtap="hideGoods"></view>
+
+<!-- 选择自定义字段 -->
+<view class="selectGoods" wx:if="{{isShowSelectDiy}}">
+  <block wx:if="{{warehouseNature!=4}}">
+    <view class="list clearfix">
+      <block wx:for="{{customize.customizeList}}" wx:key="{{index}}">
+        <view class="item {{item.active?'active':''}}" data-diy="{{item}}" data-index="{{index}}" bindtap="chooseDiy">{{item.enumerateName}}</view>
+      </block>
+    </view>
+    <view class="other">
+      <input wx:if="{{isShowInputDiy}}" value="{{inputDiy}}" bindinput='inputDiySetData' class="input-text" placeholder="请输入" maxlength="10"></input>
+    </view>
+    <button class="b-btn" bindtap="sureDiy">确定</button>
+  </block>
+</view>
+<view class="popup_bj" wx:if="{{isShowSelectDiy}}" bindtap="hideDiySelect"></view>
+
+<!-- 快递提示 -->
+<alert isshow="{{isShowTips}}" class="expressAlert" aStyle="width:500rpx;">  
+    <view class="tips">
+      <view class="tips-item clearfix">
+        <view class="label fl">产品名称</view>
+        <view class="text fl">{{productDetail.productTypeName}}</view>
+      </view>
+      <view class="tips-item clearfix">
+        <view class="label fl">服务定价</view>
+        <view class="text fl">{{productDetail.productPricing}}</view>
+      </view>
+      <view class="tips-item clearfix">
+        <view class="label fl">服务区域</view>
+        <view class="text fl">{{productDetail.productRegion}}</view>
+      </view>
+      <view class="tips-item clearfix">
+        <view class="label fl">其他</view>
+        <view class="text fl">{{productDetail.remark}}</view>
+      </view>
+    </view>
+</alert>
+
+<!-- 选择门店 -->
+<popover is-show="{{isShowPopover}}">
+  <view class="filter-container">
+    <input placeholder="输入门店名称筛选" bindinput='searchList' value="{{allName}}"></input>
+    <scroll-view class="siteList" scroll-y="{{true}}">
+      <view class="item" wx:for="{{siteList}}" wx:key="{{index}}" bindtap="selectConsignorName" data-name="{{item.warehouseFullName}}" data-id="{{item.warehouseId}}">{{item.warehouseFullName}}</view>
+    </scroll-view>
+  </view>
+</popover>
+
+
+<!-- 下单成功提示 -->
+<alert isshow="{{billingSuccess}}" class="billingSuccess" bind:closealert="billingSuccessClose" title="下单成功" aStyle="width:500rpx;">  
+  <view class="billingSuccessCon">
+    <view>恭喜您成功下单！</view>
+    <view>运单号：{{trackingNum}}</view>
+    <!-- 月结时不展示费用 -->
+    <view wx:if="{{info.paymentType!=3}}">预计费用：<text class="red">¥{{format.toFixed(info.preOrderIncomeDouble)}}</text></view>
+  </view>
+  <button class="b-btn" bindtap="closeBillingAlert">确定</button>
+</alert>
+
+
+
+<!-- 下单流程图 -->
+<view class="swiper-pass" bindtap="swiperEnd" wx:if="{{showSwiper}}">跳过</view>
+<swiper indicator-dots="true" class="swiper-box" current="{{swiperIndex}}" indicator-active-color="#ff6600" wx:if="{{showSwiper}}">
+  <block>
+    <swiper-item>
+      <view class="swiper-item">
+        <!-- b端 -->
+        <block wx:if="{{userType==2}}">        
+          <image mode="widthFix" src="/common/images/b1.jpg"></image>
+          <view class="title">订单类型</view>
+          <view class="content" style="text-align:center;">选择订单类型</view>
+          <button class="b-btn warn" bindtap="toNext" data-index="1">下一步</button>
+        </block>
+        <!-- c端 -->
+        <block wx:if="{{userType==4}}">        
+          <image mode="widthFix" src="/common/images/c1.jpg"></image>
+          <view class="title">寄件地址</view>
+          <view class="content">您可以输入或选择寄件人地址。若您在地址簿维护了默认地址，系统会自动输入默认地址。</view>
+          <button class="b-btn warn" bindtap="toNext" data-index="1">下一步</button>
+        </block>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="swiper-item">
+        <!-- b端 -->
+        <block wx:if="{{userType==2}}">   
+          <image mode="widthFix" src="/common/images/b2.jpg"></image>
+          <view class="title">输入信息</view>
+          <view class="content">点击此处，您可以输入或选择寄件人或收件人信息</view>
+          <button class="b-btn warn" bindtap="toNext" data-index="2">下一步</button>
+        </block>
+        <!-- c端 -->
+        <block wx:if="{{userType==4}}"> 
+          <image mode="widthFix" src="/common/images/c2.jpg"></image>
+          <view class="title">收件地址</view>
+          <view class="content" style="text-align:center;">您可以输入或选择收件人地址</view>
+          <button class="b-btn warn" bindtap="toNext" data-index="2">下一步</button>
+        </block>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="swiper-item">
+        <!-- b端 -->
+        <block wx:if="{{userType==2}}"> 
+          <image mode="widthFix" src="/common/images/b3.jpg"></image>
+        </block>
+        <!-- c端 -->
+        <block wx:if="{{userType==4}}"> 
+          <image mode="widthFix" src="/common/images/c3.jpg"></image>
+        </block>
+        <view class="title">预估重量</view>
+        <view class="content">您可以输入长宽高由系统自动计算体积，或者您也可以直接输入总体积。</view>
+        <button class="b-btn warn" bindtap="toNext" data-index="3">下一步</button>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="swiper-item">
+        <!-- b端 -->
+        <block wx:if="{{userType==2}}"> 
+          <image mode="widthFix" src="/common/images/b4.jpg"></image>
+        </block>
+        <!-- c端 -->
+        <block wx:if="{{userType==4}}"> 
+          <image mode="widthFix" src="/common/images/c4.jpg"></image>
+        </block>
+        <view class="title">服务产品</view>
+        <view class="content">系统会根据您输入的重量/体积匹配适合的服务产品，您也可以选择更高服务的产品。</view>
+        <button class="b-btn warn" bindtap="toNext" data-index="4">下一步</button>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="swiper-item">
+        <image mode="widthFix" src="/common/images/b5.jpg"></image>
+        <view class="title"></view>
+        <view class="content">请选择货物类型、增值服务、备注以及上门取件时间</view>
+        <button class="b-btn warn" bindtap="toNext" data-index="5">下一步</button>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="swiper-item">
+        <image mode="widthFix" src="/common/images/b6.jpg"></image>
+        <view class="title">下单完成</view>
+        <view class="content">勾选协议，点击下单即完成下单</view>
+        <button class="b-btn warn" bindtap="swiperEnd">完成</button>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<!-- 选择采购人员 -->
+<popover is-show="{{isShowPurchaseListPopover}}">
+  <view class="filter-container">
+    <input placeholder="输入姓名/手机筛选" bindinput='filterPurchaseList'></input>
+    <scroll-view class="siteList" scroll-y="{{true}}">
+      <view class="item" wx:for="{{purchaseListShow}}" wx:key="{{index}}" bindtap="selectPurchase" data-item="{{item}}">{{item.showName}}</view>
+    </scroll-view>
+  </view>
+</popover>

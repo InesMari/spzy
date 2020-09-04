@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "star": "/common/components/star/star",
+    "alert": "/common/components/alert/alert"
+  },
+  "navigationBarTitleText": "订单详情"
+}

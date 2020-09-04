@@ -1,0 +1,40 @@
+.item{
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding: 30rpx 30rpx 30rpx 55rpx;
+  border-bottom: 1rpx solid #dee2e9;
+  position: relative;
+  color: #FF6600;
+}
+.item::before{
+  content: "";
+  position: absolute;
+  left: 28rpx;
+  top: 35rpx;
+  height: 20rpx;
+  width: 20rpx;
+  border-radius: 50%;
+  background: red;
+}
+.item.read{
+  color: #333;
+}
+.item.read::before{
+  background: #d6dbe2;
+}
+.info{
+  font-size: 30rpx;
+  line-height: 1;
+}
+.content{
+  line-height: 40rpx;
+  margin-top: 22rpx;
+  font-size: 28rpx;
+}
+.picker{
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: #fff;
+  margin: 20rpx 0;
+}

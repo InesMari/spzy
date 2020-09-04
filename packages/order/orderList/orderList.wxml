@@ -1,0 +1,153 @@
+<view class="tabs mt_20">
+  <view class="item {{orderType==1?'active':''}}" bindtap="changeState" data-state="1">待取件</view>
+  <view class="item {{orderType==2?'active':''}}" wx:if="{{userType==2&&!hideWaitSure}}" bindtap="changeState" data-state="2">待确认</view>
+  <view class="item {{orderType==3?'active':''}}" bindtap="changeState" data-state="3">待付款</view>
+  <view class="item {{orderType==4?'active':''}}" bindtap="changeState" data-state="4">历史订单</view>
+</view>
+<view class="common-tab mt_20" wx:if="{{userType==2&&orderType==2}}">
+  <view class="item {{mineType==2?'active':''}}" bindtap="queryOrder" data-type="2">我收到的</view>
+  <view class="item {{mineType==1?'active':''}}" bindtap="queryOrder" data-type="1">我发起的</view>
+</view>
+<view class="search-box clearfix">
+  <image mode="widthFix" class="search-icon" src="/common/images/u910.png"></image>
+  <image mode="widthFix" class="scan-icon" bindtap="getCode" src="/common/images/u1878.png"></image>
+  <input value="{{scanValue}}" bindinput="searchList" placeholder="请输入单号/供应商/调出店仓/订单类型查询"></input>
+</view>
+<image mode="widthFix" wx:if="{{isRefresh}}" class="loading-icon" src="/common/images/loading.gif"></image>
+<scroll-view class="scorll mt_20" scroll-y="{{true}}" bindscrolltoupper="toupper" upper-threshold="1">
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.orderId}}" data-type="{{item.showTypeList}}">
+      <view class="order-info clearfix">
+        <!-- 历史运单状态 -->
+        <block wx:if="{{orderType!=4&&item.productType!=0}}">
+          <view class="type" wx:if="{{item.productType==1}}">
+            <image mode="widthFix" src="/common/images/kd_active.png"></image>
+            <text>快递</text>
+          </view>
+          <view class="type" wx:if="{{item.productType==2}}">
+            <image mode="widthFix" src="/common/images/ky_active.png"></image>
+            <text>快运</text>
+          </view>
+          <view class="type" wx:if="{{item.productType==3}}">
+            <image mode="widthFix" src="/common/images/wl_active.png"></image>
+            <text>物流</text>
+          </view>
+          <view class="type" wx:if="{{item.productType==4}}">
+            <image mode="widthFix" src="/common/images/zc_active.png"></image>
+            <text>整车</text>
+          </view>
+        </block>
+        <!-- 非历史运单状态 -->
+        <block wx:if="{{orderType==4}}">
+          <!-- <view class="state signIn">签收</view>
+          <view class="state collect">揽件</view>
+          <view class="state cancel">取消</view> -->
+          <view class="state collect">{{item.orderOutStateName}}</view>
+        </block>
+        <!-- 运单号和时间 -->
+        <view class="info">
+          <view class="number clearfix">
+            <view class="label">运单号</view>
+            <view class="text" bind:longpress="copyText" data-label="运单号" data-value="{{item.trackingNum}}">{{item.trackingNum}}</view>
+          </view>
+          <view class="time clearfix">
+            <view class="label">时间</view>
+            <view class="text">{{item.billingDate}}</view>
+          </view>
+        </view>
+        <!-- 运单号和时间 end-->
+        <!-- <view class="speed">很快</view> -->
+        <view class="price" wx:if="{{orderType!=1&&item.paymentType!=3}}">￥{{item.orderIncome}}</view>
+      </view>
+      <view class="order-content">
+        <view class="sites clearfix" wx:if="{{orderType==3||orderType==4}}">
+          <view class="sites-left">
+            <view>{{item.cityStartName}}{{item.sourceAddress}}</view>
+            <view>{{item.cityEndName}}{{item.destAddress}}</view>
+          </view>
+          <view class="weight">{{item.weight }}公斤</view>
+        </view>
+        <view class="particular clearfix" wx:if="{{orderType==1||orderType==2}}">
+          <view class="content {{item.dateTime?'':'noCutdown'}}">
+            <view class="content-item sendSite clearfix">
+              <view class="sign">寄</view>
+              <view class="label">寄件地址</view>
+              <view class="text">{{item.cityStartName}}{{item.sourceAddress}}</view>
+            </view>
+            <view class="content-item consignee clearfix">
+              <view class="sign">收</view>
+              <view class="label">收件地址</view>
+              <view class="text">{{item.cityEndName}}{{item.destAddress}}</view>
+            </view>
+            <view class="content-item clearfix" wx:if="{{item.consigorName&&mineType==2}}">
+              <view class="label">下单店仓</view>
+              <view class="text">{{item.consigorName}}</view>
+            </view>
+            <view class="content-item clearfix" wx:if="{{item.payConsignorName&&mineType==1}}">
+              <view class="label">结算店铺</view>
+              <view class="text">{{item.payConsignorName}}</view>
+            </view>
+            <view class="content-item clearfix" wx:if="{{item.takingUserName}}">
+              <view class="label">取件员</view>
+              <view class="text">{{item.takingUserName }}</view>
+            </view>
+            <view class="content-item clearfix" wx:if="{{item.outgoingTrackingNum}}">
+              <view class="label">物流单号</view>
+              <view class="text" bind:longpress="copyText" data-label="物流单号" data-value="{{item.outgoingTrackingNum}}">{{item.outgoingTrackingNum}}</view>
+            </view>
+            <view class="content-item clearfix" wx:if="{{item.takingUserPhone}}">
+              <view class="label">联系电话</view>
+              <view class="text" bindtap="phoneCall" data-phone="{{item.takingUserPhone}}">
+                <image mode="widthFix" class="search-icon" src="/common/images/u2513.png"></image>
+                <text>{{item.takingUserPhone}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="countdown" wx:if="{{item.dateTime&&orderType==1}}">{{item.timeDown}}</view>
+        </view>
+        <view class="bottom-btn clearfix" wx:if="{{mineType!=1}}">
+          <view class="fr">
+            <button class="btn cancel fl" wx:if="{{item.showCancel}}" catchtap="showCancelOrder" data-id="{{item.orderId}}">取消运单</button>
+            <button class="btn warn fl ml_20" wx:if="{{item.showEdit}}" data-id="{{item.orderId}}" catchtap="editOrder">修改运单</button>
+            <button class="btn fl ml_20" wx:if="{{item.showPayment && orderType==2}}" catchtap="showRejectOrder" data-id="{{item.orderId}}">拒绝</button>
+            <button class="btn success fl ml_20" wx:if="{{item.showPayment && orderType==2}}" catchtap="agreeOrder" data-id="{{item.orderId}}">确认</button>
+            <button class="btn success fl ml_20" disabled="{{item.showPayDisabled}}" wx:if="{{(item.showPay||item.showPayDisabled) && orderType==3}}" data-id="{{item.orderId}}" catchtap="topay">立即付款</button>
+            <button class="btn fl success ml_20" wx:if="{{item.showRebilling && orderType==4}}" catchtap="reBilling" data-id="{{item.orderId}}">重新下单</button>
+            <!-- <button class="btn success fl ml_20" wx:if="{{orderType==4}}">我要评价</button> -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="nodata" wx:if="{{list.length==0}}">没有数据~</view>
+  </view>
+</scroll-view>
+<!-- 取消订单弹窗 -->
+<alert id="alertCancelOrder" isshow="{{isShowCancelOrder}}" title="取消订单">
+  <view class='comlist mt_20'>
+    <view class='item'>
+      <view class='label'>取消备注</view>
+      <view class='input-text'>
+        <input type="text" placeholder="请输入取消订单备注" bindinput='inputCancelMark' value='{{orderCancelMark}}'></input>
+      </view>
+    </view>
+  </view>
+  <view class='clearfix page-bottom-btn'>
+    <button class='cancel fl' bindtap='hideCancelOrder'>取消</button>
+    <button class='sure fr' bindtap='cancelOrder'>确认</button>
+  </view>
+</alert>
+<!-- 拒绝订单弹窗 -->
+<alert id="alertCancelOrder" isshow="{{isShowRejectOrder}}" title="拒绝订单">
+  <view class='comlist mt_20'>
+    <view class='item'>
+      <view class='label'>取消备注</view>
+      <view class='input-text'>
+        <input type="text" placeholder="请输入拒绝订单备注" bindinput='inputRejectMark' value='{{ordeRejectMark}}'></input>
+      </view>
+    </view>
+  </view>
+  <view class='clearfix page-bottom-btn'>
+    <button class='cancel fl' bindtap='hideRejectOrder'>取消</button>
+    <button class='sure fr' bindtap='rejectOrder'>确认</button>
+  </view>
+</alert>

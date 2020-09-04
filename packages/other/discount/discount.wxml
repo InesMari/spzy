@@ -1,0 +1,24 @@
+<view class="list">
+  <view class="item" bindtap="toDetail">
+    <image class="state" mode="widthFix" src="/common/images/discountState1.png"></image>
+    <view class="title">春节充值大放送</view>
+    <view class="content">
+      <view class="fs30 mb_20">充<text class="red">1000.00</text> 送 <text class="red fw">200.00</text></view>
+      <view class="fs30">现充现返，立即到账 <text class="red fw">1200.00</text></view>
+    </view>
+    <view class="bottom-btn">
+      <button class="btn">立即抢购</button>
+    </view>
+  </view>  
+  <view class="item">
+    <image class="state" mode="widthFix" src="/common/images/discountState2.png"></image>
+    <view class="title">春节充值大放送</view>
+    <view class="content">
+      <view class="fs30 mb_20">充<text class="red">1000.00</text> 送 <text class="red fw">200.00</text></view>
+      <view class="fs30">现充现返，立即到账 <text class="red fw">1200.00</text></view>
+    </view>
+    <view class="bottom-btn">
+      <button class="btn">立即抢购</button>
+    </view>
+  </view>
+</view>

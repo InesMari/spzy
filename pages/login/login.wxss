@@ -1,0 +1,117 @@
+.logo{
+  width: 50%;
+  display: block;
+  margin: 0 auto 50rpx;
+}
+.login-btn{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: 0;
+  margin-top: -444rpx;
+}
+button{
+  border:none;
+}
+.pay-btn image{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10rpx;
+  width: 50rpx;
+  height: 50rpx;  
+}
+.phone-btn{
+  background: #1C67B0;
+  color:#fff;
+}
+
+/* .phoneLogin{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom:0;
+  padding: 80rpx 30rpx 50rpx;
+  background: #fff;
+  box-sizing: border-box;
+  z-index: 999;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+} */
+.phoneLogin{
+  padding: 0 30rpx;
+  /* background: #fff; */
+  box-sizing: border-box;
+  z-index: 999;
+}
+.phoneLogin .form{
+  border:1px solid #dee2e9;
+  border-bottom: none;
+  /* border-radius: 4rpx; */
+}
+.phoneLogin .input-text,.phoneLogin picker{
+  position: relative;
+  border-bottom:1px solid #dee2e9;
+  background: #fff;
+  height: 90rpx;
+}
+.phoneLogin picker{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 30rpx;
+}
+.phoneLogin .input-text input{
+  height: 90rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.phoneLogin .input-text input[disabled]{
+  background: #efefef;
+}
+.phoneLogin .input-text .unit{
+  font-size: 28rpx;
+  color: #1C67B0;
+  text-decoration: underline;
+  line-height: 90rpx;
+  position: absolute;
+  right: 30rpx;
+  top:0;
+  z-index: 9;
+}
+
+.wxLogin{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-top-left-radius: 6rpx;
+  border-top-right-radius: 6rpx;
+  background: #fff;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.wxLogin .title{
+  line-height: 90rpx;
+  font-size: 26rpx;
+}
+.wxLogin .title image{
+  width: 86rpx;
+  vertical-align: middle;
+}
+.wxLogin .title .text{
+  margin-left: 10rpx;
+}
+.wxLogin .phone-title{
+  line-height: 90rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  border-bottom:1rpx solid #dee2e9;
+}
+.wxLogin .phone{
+  line-height: 90rpx;
+  border-bottom:1rpx solid #dee2e9;
+  font-size: 30rpx;
+}
+.wxLogin .phone text{
+  margin-right: 30rpx;
+}

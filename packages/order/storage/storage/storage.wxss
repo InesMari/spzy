@@ -1,0 +1,89 @@
+.search-box{
+  height: 80rpx;
+  padding: 0 80rpx;
+  background: #fff;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom:1rpx solid #dee2e9;  
+}
+.search-box input{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.search-box .search-icon{
+  position: absolute;
+  left: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.search-box .scan-icon{
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.list .item{
+  background: #fff;
+  border-bottom:1rpx solid #dee2e9;
+  margin-bottom: 20rpx;
+}
+.list .item .item-title{
+  border-bottom:1rpx solid #dee2e9;
+  padding: 15rpx 30rpx;
+}
+.list .item .item-title .state{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background: #ff6600;
+  text-align: center;
+  margin-right: 30rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  line-height: 26rpx;
+  color: #fff;
+  font-size: 22rpx;
+}
+.list .item .item-title .orderNum{
+  font-size: 30rpx;
+}
+.list .item .item-title .time{
+  font-size: 24rpx;
+  color:#b3b3b3;
+}
+.list .item .item-title .arriveTime{
+  color:#ff6600;
+  line-height: 70rpx
+}
+.list .item .info-list{
+  padding: 20rpx 30rpx;
+  border-bottom:1rpx solid #dee2e9;  
+}
+.list .item .info-label{
+  float: left;
+  width: 100rpx;
+  margin-right: 20rpx;
+  color: #666;
+  line-height: 45rpx;
+}
+.list .item .info-text{
+  float: left;
+  width: calc(100% - 120rpx);
+  line-height: 45rpx;
+}
+.list .item .bottom-list{
+  display: flex;
+  padding:15rpx 0;
+}
+.list .item .bottom-item{
+  flex:1;
+  text-align: center;
+}
+.list .item .bottom-item image{
+  margin: 0 auto;
+  width: 50rpx;
+  height: 50rpx;
+}

@@ -1,0 +1,31 @@
+<view class="name">{{companyName}}</view>
+<view class='comlist'>
+  <view class='item'>
+    <view class='label'>申请部门</view>
+    <view class='input-text'>
+      采购部
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>姓名</view>
+    <view class='input-text'>
+      <input placeholder="请输入姓名" data-key="userName" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>手机号</view>
+    <view class='input-text'>
+      <input placeholder="请输入手机号" data-key="userLogin" bindinput="inputSetData" type="number"></input>
+      <view class="unit" bindtap="getSmsCode" wx:if="{{!isGetSmsCode}}">获取验证码</view>
+        <view class="unit" wx:if="{{isGetSmsCode}}">{{cutdown}}s</view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='label'>验证码</view>
+    <view class='input-text'>
+      <input placeholder="请输入验证码" data-key="smsCode" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+
+<button class="b-btn warn" bindtap="save">登录</button>

@@ -1,0 +1,58 @@
+<view class="filter" bindtap="filter">筛选</view>
+<view class="list title">
+  <view class="item">
+    <view class="item-td">开票时间</view>
+    <view class="item-td">抬头类型</view>
+    <view class="item-td">开票金额</view>
+  </view>
+</view>
+<view class="list">
+  <view class="item" wx:for="{{list}}" wx:key="{{index}}" bindtap="toDetail" data-invoiceId="{{item.invoiceId}}">
+    <view class="item-td">
+      <view>{{item.date}}</view>
+      <view>{{item.time}}</view>
+    </view>
+    <view class="item-td">
+      <view>{{item.invoiceTypeName}}</view>
+    </view>
+    <view class="item-td">
+      <view>{{item.invoiceFee}}</view>
+    </view>
+  </view>
+</view>
+<view class="nodata" wx:if="{{list.length==0}}">没有数据~</view>
+
+
+<!-- 筛选 -->
+<popover is-show="{{isShowPopover}}">
+  <view class="filter-container">
+    <view class="filter-item">
+      <view class="label">开始时间：</view>
+      <view class="input-text">
+        <datetimepicker id="startDate" placeholder="请选择时间" bind:change="changeStartDate"></datetimepicker>
+      </view>
+    </view>
+    <view class="filter-item">
+      <view class="label">结束时间：</view>
+      <view class="input-text">
+        <datetimepicker id="endDate" placeholder="请选择时间" bind:change="changeEndDate"></datetimepicker>
+      </view>
+    </view>
+    <view class="filter-item">
+      <view class="label">抬头类型：</view>
+      <view class="input-text">
+        <picker mode="selector" range="{{invoiceTypeList}}" bindchange="invoiceTypeChange" range-key="codeName"
+        value="{{invoiceTypeIndex}}">
+          <view wx:if="{{invoiceTypeList.length !=0 &&invoiceTypeIndex!=null}}">
+            {{invoiceTypeList[invoiceTypeIndex].codeName}}
+          </view>
+          <view class="zt_999" wx:else>请选择消费方式</view>
+        </picker>
+      </view>
+    </view>
+    <view class="page-bottom-btn clearfix">
+      <button class="cancel fl" bindtap="cleanSearch">清空</button>
+      <button class="fr" bindtap="sureFilter">确定</button>
+    </view>
+  </view>
+</popover>

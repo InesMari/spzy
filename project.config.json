@@ -1,0 +1,127 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.3",
+	"appid": "wxbb9e6757232356eb",
+	"projectname": "edb_wx",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "packages/order/orderPay/orderPay",
+					"pathName": "packages/order/orderPay/orderPay",
+					"query": "orderId=12614&userLogin=18898413054&attributionType=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packages/order/orderPay/orderPay",
+					"pathName": "packages/order/orderPay/orderPay",
+					"query": "orderId=11477&userLogin=15626113623&attributionType=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "packages/order/editAddress/editAddress",
+					"pathName": "packages/order/editAddress/editAddress",
+					"query": "isScan=true",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/verification/verification",
+					"pathName": "pages/verification/verification",
+					"query": "tenantId=400",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "tenantId=273",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "pages/scanReg/scanReg",
+					"pathName": "pages/scanReg/scanReg",
+					"query": "cfgName=CLIENT_273",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "packages/personal/suggest/suggest",
+					"pathName": "packages/personal/suggest/suggest",
+					"scene": null
+				}
+			]
+		}
+	}
+}

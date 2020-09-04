@@ -1,0 +1,8 @@
+<picker range="{{range}}" range-key="name" mode="multiSelector" bindchange="changeHandler" value="{{selected}}" bindcolumnchange="columnchangeHandler">
+    <view class="component_value_color extends-class zt_333" hidden="{{!isChange}}">
+        {{range[0][selected[0]].name}}{{range[1][selected[1]].name?'，'+range[1][selected[1]].name : ''}}{{range[2][selected[2]].name?'，'+range[2][selected[2]].name : ''}}
+    </view>
+    <view class="component_placeholder_color extends-class placeholder-class" hidden="{{isChange}}">
+        {{placeholder}}
+    </view>
+</picker>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "headerRemind": "/common/components/header-remind/headerRemind",
+    "alert": "/common/components/alert/alert"
+  },
+  "navigationBarTitleText": "我的订单"
+}

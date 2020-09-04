@@ -1,0 +1,5 @@
+<view class="authorize-view">
+    <image src="../../common/images/u3514.png"></image>
+    <view class="text">任意调将获取您公开的信息（昵称、头像等）</view>
+    <button class="b-btn" open-type="getUserInfo" bindgetuserinfo="getuserinfoHandler">授权</button>
+</view>

@@ -1,0 +1,90 @@
+@import '/packages/order/order.wxss';
+
+.logistics{
+  padding: 50rpx;
+  position: relative;
+}
+.logistics .item{
+  margin-bottom: 80rpx;
+  position: relative;
+  z-index: 9;
+}
+.logistics .time{
+  float: left;
+  width: 140rpx;
+}
+.logistics .circle{
+  float: left;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #ccc;
+  margin: 0 30rpx;
+}
+.logistics .receive,.logistics .ji{
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #ccc;
+  margin: 0 20rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color:#fff;
+}
+.logistics .receive{
+  background: #ff6600;
+}
+.logistics .info{
+  float: left;
+  width: calc(100% - 220rpx);
+}
+.logistics::after{
+  content:"";
+  height: calc(100% - 230rpx);
+  position: absolute;
+  top: 55rpx;
+  left: 229rpx;
+  border-right: 2rpx dashed #dee2e9;
+}
+.detail-bottom>view{
+  padding: 0 20rpx;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.detail-bottom>view button{
+  width: 100%;
+}
+.detail-bottom>view .pay-btn{
+  background: #0aac2c;
+}
+.detail-bottom>view .pay-btn image{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10rpx;
+  width: 50rpx;
+  height: 50rpx;  
+}
+.trackingNumList{
+  white-space: nowrap;
+  background: #fff;
+}
+.trackingNumList .item{
+  display: inline-block;
+  background: #fff;
+  line-height: 90rpx;
+  padding: 0 20rpx;
+  border-right: 1rpx solid #efefef;
+  box-sizing: border-box;
+}
+.trackingNumList .item.active{
+  color: #1089db;
+  border-bottom: 4rpx solid #1089db;
+}
+.noTrack{
+  margin: 100rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+}

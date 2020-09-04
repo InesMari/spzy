@@ -1,0 +1,311 @@
+.headerRemindBlock picker{
+  position: absolute;
+  left: 0;
+  top:0;
+  height: 52rpx;
+  width: 100%;
+  z-index: 99;
+}
+.headerRemindBlock picker view{
+  width: 100%;
+  height: 52rpx;
+}
+.comlist .address.item{
+  height: auto;
+  min-height: 110rpx;
+  line-height: 110rpx;
+}
+.comlist .address .text-icon{
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 50%;
+  background: #5bc240;
+  text-align: center;
+  margin:35rpx 10rpx 0 0; 
+  font-size: 24rpx;
+  color: #fff;
+}
+.comlist .address .label{
+  width: 180rpx;
+}
+.comlist .address .input-text{
+  width: calc(100% - 60rpx);
+  padding: 10rpx 50rpx 10rpx 0;
+  /* height: 110rpx; */
+  line-height: 40rpx;
+  box-sizing: border-box;
+  margin:0;
+  height: auto;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center; */
+}
+.comlist .address .input-text>view{
+  /* white-space: nowrap;  
+  text-overflow: ellipsis;
+  overflow: hidden; */
+  width: 100%;
+}
+.comlist .address .address-icon{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  top: 20rpx;
+  right: 24rpx;
+  z-index: 10;
+}
+
+.comlist .item .weight .change{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 30rpx;
+}
+.comlist .item .weight .num{
+  line-height: 90rpx;
+  margin:0 20rpx;
+  font-size: 30rpx;
+}
+.comlist .item.service{
+  line-height: 110rpx;
+  height: 110rpx;
+}
+.comlist .item.service .input-text{  
+  height: 110rpx;
+  line-height: 30rpx;
+  box-sizing: border-box;
+  padding: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.comlist.w_c .item{
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  border:none;
+  border-right:1rpx solid #d6dbe2;
+}
+.comlist.w_c .item .num input{
+  height: 40rpx;
+  width: 60rpx;
+  text-align: center;
+  font-size: 20rpx;
+  display: block;
+  margin-top: 20rpx;
+  border:1rpx solid #d6dbe2;
+}
+.component_placeholder_color{
+  line-height: 80rpx;
+}
+
+.volumeList{
+  border-bottom: 1rpx solid #d6dbe2;
+}
+.volumeList .item{
+  float: left;
+  width: 22%;
+  box-sizing: border-box;
+  border-right: 1rpx dashed #d6dbe2;
+  background: #fff;
+  padding:0 10rpx 0 24rpx;
+}
+.volumeList .item:last-child{
+  width: 34%;
+}
+.volumeList .item:last-child{
+  border:none;
+  padding-right: 24rpx;
+}
+.volumeList .item .label{
+  line-height: 90rpx;
+  font-size: 30rpx;
+  width:66rpx;
+  float:left;
+}
+.volumeList .item .input-text{
+  width: calc(100% - 66rpx);
+  float:left;
+}
+.volumeList .item .input-text input{
+  height: 90rpx;
+  font-size: 30rpx;
+  text-align: right;
+}
+.volumeList .placeholder-class{
+  font-size: 24rpx;
+}
+.volumeList2 .item{
+  width: 33.33%!important;
+}
+.volumeList2 .item .label{
+  width: 140rpx;
+}
+.volumeList2 .item .input-text{
+  width: calc(100% - 140rpx);
+}
+
+
+/* 产品介绍 */
+.product-list{
+  background: #fff;
+  display: flex;
+}
+.product-list .item{
+  padding:20rpx 0 30rpx;
+  flex: 1;
+  float: left;
+  text-align: center;
+  position: relative;
+}
+.product-list image{
+  display: inline-block;
+  width: 70rpx;
+  height: 70rpx;
+}
+.product-list .text{
+  line-height: 1;
+}
+/* 快递弹窗 */
+.expressAlert .tips{
+  padding:15rpx 30rpx;
+}
+.expressAlert .tips-item .label{
+  color: #666;
+  line-height: 60rpx;
+  width: 130rpx;
+  text-align: left;
+}
+.expressAlert .tips-item .text{
+  line-height: 60rpx;
+  width: calc(100% - 130rpx);
+}
+
+/* 选择所寄物品 */
+.selectGoods{
+  position: fixed;
+  bottom:0;
+  left: 0;
+  background: #fff;
+  padding:30rpx 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.selectGoods .list .item{
+  float: left;
+  width: 23%;
+  margin:0 1% 20rpx;
+  border:1rpx solid #dee2e9;
+  border-radius: 10rpx;
+  text-align: center;
+  height: 100rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selectGoods .list .item.active{
+  color:#1089db;
+  border-color: #1089db;
+}
+.selectGoods .input-text{
+  height: 100rpx;
+  padding-left: 24rpx;
+  border:1rpx solid #dee2e9;
+  border-radius: 10rpx;
+  width:100%;
+  box-sizing: border-box;
+}
+
+.filter-container{
+  height: 100%;
+}
+.filter-container input{
+  width: 90%;
+  display: block;
+  margin: 20rpx auto;
+  border:1rpx solid #dee2e9;
+  border-radius: 6rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  height: 80rpx;
+}
+.filter-container .siteList{
+  height: calc(100% - 130rpx);
+}
+.filter-container .siteList .item{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 24rpx;
+  border-bottom: 1rpx solid #dee2e9;
+}
+.filter-container .siteList .item:first-child{
+  border-top: 1rpx solid #dee2e9;
+}
+
+.billingSuccessCon{
+  padding: 30rpx 0;
+}
+.billingSuccessCon view{
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+.billingSuccess .b-btn{
+  height: 80rpx;
+  width: 300rpx;
+  margin: 10rpx auto 30rpx;
+}
+
+/* 下单流程图 */
+.swiper-box{
+  position: fixed;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.swiper-item image{
+  width: 100%;
+}
+.swiper-item .title{
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+.swiper-item .content{
+  width: 380rpx;
+  margin:10rpx auto;
+  height: 100rpx;
+  line-height: 30rpx;
+  color: #999;
+  text-align: left;
+}
+.swiper-item .b-btn{
+  margin:0 auto;
+  border-radius: 50rpx;
+  width: 220rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+}
+.swiper-pass{
+  position: fixed;
+  top: 25rpx;
+  right: 20rpx;
+  font-size: 26rpx;
+  height: 45rpx;
+  width: 90rpx;
+  line-height: 45rpx;
+  text-align: center;
+  color:#fff;
+  border-radius: 6rpx;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}

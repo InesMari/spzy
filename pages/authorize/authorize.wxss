@@ -1,0 +1,19 @@
+page{
+    background-color: #fff;
+}
+.authorize-view {
+    height: 100%;
+    padding-top: 50%;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fff;
+}
+
+.authorize-view image {
+    width: 226rpx;
+    height: 100rpx;
+    margin-left: 250rpx;
+}
+.authorize-view .text{
+  margin-top: 90rpx;
+}

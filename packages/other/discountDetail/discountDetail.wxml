@@ -1,0 +1,25 @@
+<view class="detail-title">优惠详情</view>
+<view class="detail-list">
+  <view class="item">
+    <view class="amount">100.00</view>
+    <view class="fs30">充100.00得110.00</view>
+  </view>
+  <view class="item">
+    <view class="amount">100.00</view>
+    <view class="fs30">充100.00得110.00</view>
+  </view>
+  <view class="item disabled">
+    <view class="amount">100.00</view>
+    <view class="fs30">充100.00得110.00</view>
+  </view>
+</view>
+<view class="detail-title mt_20">优惠说明</view>
+<view class="explain">
+  <view>1.限量出售，售完即止</view>
+  <view>2.赠送金额不可退</view>
+  <view>3.支持多次购买</view>
+</view>
+<view class="bottomView clearfix">
+  <view class="fl">500.00</view>
+  <button class="btn fr">购买</button>
+</view>

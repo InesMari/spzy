@@ -1,0 +1,36 @@
+.name{
+  text-align: center;
+  margin-top: 30%;
+  height: 100rpx;
+  line-height:100rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #1089db;
+  letter-spacing:5rpx;
+}
+.list{
+  width: 240rpx;
+  margin: 80rpx auto 20rpx;
+  height: 102rpx;
+}
+.list .item{
+  width: 100rpx;
+  height: 100rpx;
+  border: 1rpx solid #dee2e9;
+  border-radius: 5rpx;
+  background: #fff;
+}
+.list .item input{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+}
+.tips{
+  color:red;
+  font-size: 26rpx;
+  text-align: center;
+}
+.page-bottom-btn{
+  margin-top: 100rpx;
+}

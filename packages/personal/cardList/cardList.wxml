@@ -1,0 +1,20 @@
+<view class="cardList">
+  <view class="item">
+    <view class="name"></view>
+    <view class="carId clearfix">
+      <view class="num txt_l">6212</view>
+      <view class="num txt_center">****</view>
+      <view class="num txt_center">****</view>
+      <view class="num txt_r">6212</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="name"></view>
+    <view class="carId clearfix">
+      <view class="num txt_l">6212</view>
+      <view class="num txt_center">****</view>
+      <view class="num txt_center">****</view>
+      <view class="num txt_r">6212</view>
+    </view>
+  </view>
+</view>

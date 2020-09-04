@@ -1,0 +1,9 @@
+<view class="clearfix"  class="myFileUpdate">
+    <view class="n-ch extend-class" style="height: {{height}}; width: {{width}}" catch:tap="chooseHandler" wx:if="{{_urls.length < count && isRechoose }}"></view>
+    <view class="p-ch extend-class" style="height: {{height}}; width: {{width}}" wx:for="{{_urls}}" wx:key="{{index}}">
+        <image src="{{item.picFullUrl}}" data-url="{{item.picFullUrl}}" style="height: {{height}}; width: {{width}}" catch:tap="previewHandler"></image>
+        <view wx:if="{{!item.flowId}}" class="remove" data-url="{{item.picFullUrl}}" catch:tap="remove">
+            <icon type="cancel"></icon>
+        </view>
+    </view>
+</view>

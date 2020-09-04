@@ -1,0 +1,58 @@
+.navigator{
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  height: 140rpx;
+  box-shadow: 0 0 6rpx rgba(0,0,0,0.1);
+}
+.navigator .item{
+  width: 20%;
+  text-align: center;
+  position: relative;
+  float: left;
+  padding-top: 20rpx;
+  height: 140rpx;
+  box-sizing: border-box;
+}
+.navigator .item image{
+  width: 70rpx;
+  height: 70rpx;
+  display: inline-block;
+}
+
+.navigator .item .addBtn{
+  position: absolute;
+  width:100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #ff6600;
+  top:-20rpx;
+  left: 50%;
+  margin-left: -50rpx;
+}
+
+.navigator .item .addBtn::before{
+  content: "";
+  width: 60rpx;
+  height: 10rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top:50%;
+  margin-top: -5rpx;
+  left: 20rpx;
+  background: #fff;
+}
+.navigator .item .addBtn::after{
+  content: "";
+  width: 10rpx;
+  height: 60rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top:20rpx;
+  margin-left: -5rpx;
+  left: 50%;
+  background: #fff;
+}

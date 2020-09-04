@@ -1,0 +1,172 @@
+page{
+  padding-bottom: 30rpx;
+}
+.header{
+  padding-bottom: 50rpx;
+  position: relative;
+  background: #fff;
+}
+.bgline{
+  height: 40rpx;
+  background: #ff6600;
+}
+.headerBg{
+  width: 100%;
+}
+.headerMain{
+  height: 360rpx;
+  padding: 22rpx;
+  border-radius: 10rpx;
+  background-color:#fff;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top:20rpx;
+  z-index: 9;
+  box-sizing: border-box;
+}
+.headerMain .mainBg{
+  position: absolute;
+  width: 100%;
+  bottom:0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.3
+}
+.headerMain .content{
+  position: relative;
+  z-index: 9;
+}
+.headerMain .switcher,.headerMain picker{
+  position: absolute;
+  left: 0;
+  top:22rpx;
+  line-height: 42rpx;
+  color:#ff6600;
+  text-decoration: underline;
+  font-size: 20rpx;
+}
+.headerMain .switcherRight .switcher,.headerMain .switcherRight picker{
+  right: 0;
+  left: auto;
+}
+.headerMain picker{
+  height: 42rpx;
+  z-index: 99;
+  width: 150rpx;
+}
+.headerMain picker view{
+  height: 42rpx;
+  width: 150rpx;
+}
+.headerMain .sign{
+  width: 130rpx;
+  line-height: 42rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  background: #ff6600;
+  position: absolute;
+  right: 0;
+  top:22rpx;
+  text-align: center;
+}
+.headerMain .isSignIn{
+  background: #ffb380;
+}
+.headerMain .userHeader{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 10rpx;
+}
+.headerMain .userHeader image{
+  height: 100%;
+  width: 100%;
+}
+.headerMain .user .uerName{
+  font-size: 30rpx;
+  color: #ff6600;
+  text-align: center;
+}
+.headerMain .user .phone{
+  text-align: center;
+}
+.headerMain .user .tenantName{
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+.headerMain .user .warehouseFullName{
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 50rpx;
+  height: 40rpx;
+  margin-bottom: 30rpx;
+}
+.headerMain .user .b-innerInfo{
+  text-align: center;
+  color: #666;
+}
+.headerMain .info{
+  margin-top: 50rpx;
+}
+.headerMain .info .item{
+  float: left;
+  width: 35%;
+  box-sizing: border-box;
+}
+.headerMain .info .item:nth-child(2){
+  width: 30%;
+  border-right: 1rpx solid #dee2e9;
+  border-left: 1rpx solid #dee2e9;
+}
+.headerMain .info .num{
+  text-align: center;
+  font-size: 30rpx;
+  color: #ff6600;
+}
+.headerMain .info .text{
+  text-align: center;
+  font-size: 20rpx;
+}
+.list{
+  border-top: 1rpx solid #dee2e9;
+  background: #fff;
+}
+.list .item{
+  float: left;
+  border-right: 1rpx solid #dee2e9;
+  border-bottom: 1rpx solid #dee2e9;
+  box-sizing: border-box;
+  padding:30rpx 0;
+  text-align: center;
+  width:50%;
+  line-height: 50rpx;
+}
+.list .item:nth-child(even){
+  border-right:none;
+}
+.list .item image{
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 30rpx;
+  vertical-align: top;
+}
+.telephone{
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+.toLogin{
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.version{
+  text-align: center;
+  color: #999;
+  font-size: 20rpx;
+  line-height: 60rpx;
+}

@@ -1,0 +1,14 @@
+.timeRangePicker{
+  width: 400rpx;
+  height: 90rpx;
+  display: block;
+}
+.component_placeholder_color{
+    color: #808080!important;
+}
+.component_value_color{
+    color: #333!important;
+}
+.fs26{
+  font-size: 26rpx;
+}

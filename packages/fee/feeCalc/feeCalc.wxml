@@ -1,0 +1,68 @@
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>出发地</view>
+    <view class='input-text'>
+      <regionPicker id="startRegion" fields="CITY" placeholder="始发城市" bindchange="startRegionChange" value='{{startRegionIds}}'></regionPicker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>目的地</view>
+    <view class='input-text'>
+      <regionPicker id="endRegion" fields="CITY" placeholder="目的城市" bindchange="endRegionChange" value='{{endRegionIds}}'></regionPicker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>预估重量</view>
+    <view class="fr weight">
+      <image class="fl change" bindtap="reduceWeight" src="/common/images/u308.png"></image>
+      <view class="fl num"><input value="{{info.weight}}" data-key="weight" bindinput="inputSetData" type="number"></input></view>
+      <image class="fl change" bindtap="addWeight" src="/common/images/u306.png"></image>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20' style="margin-bottom:0;">
+  <view class='item'>
+    <view class='label label-state'>
+      <view class="fs30">货物保价</view>
+      <view class="fs20">(建议足额保价)</view>
+    </view>
+    <view class='input-text'>
+      <input value="{{info.goodsPrice}}" bindinput='goodsPriceSetData' placeholder="请输入保价总额"></input>
+    </view>
+    <view class="unit">元</view>
+  </view>
+</view>
+<headerRemind>投保说明：未保价物品，将按运费的3倍进行赔偿。</headerRemind>
+
+<button class="b-btn" bindtap="calcFee">立即试算</button>
+
+<!-- 算费结果 -->
+<view class="popup_bj" wx:if="{{isShowCalcFee}}">
+  <view class="feeDialog">
+    <view class="header clearfix">
+      <view class="th">服务产品</view>
+      <view class="th">试算费用</view>
+      <view class="th">预计到达日期</view>
+    </view>
+    <view class="list">
+      <view class="item clearfix" wx:for="{{clacFeeList}}" wx:key="{{index}}">
+        <view class="td">{{item.priceName}}
+          <view wx:if="{{item.isDefault==1}}" class="recommend">超值</view>
+        </view>
+        <view class="td red">
+          <text wx:if="{{item.noFee}}">{{item.sumCost}}</text>
+          <text wx:if="{{!item.noFee}}">¥{{item.sumCost}}</text>
+        </view>
+        <view class="td">{{item.endDate}}</view>
+      </view>
+    </view>
+    <button class="b-btn warn" bindtap="toBilling">立即下单</button>
+    <image class="close" bindtap="hideFeeDialog" mode="widthFix" src="/common/images/u235.png"></image>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<!-- <headerRemind>本次最高可开 <text class="red">88.88</text> 元</headerRemind> -->
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>开票金额</view>
+    <view class='input-text'>
+      <input placeholder="" disabled="{{disabledEdit}}" value="{{info.invoiceFeeDouble}}" data-key="invoiceFeeDouble" bindinput="inputSetData" type="digit"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>抬头类型</view>
+    <view class='input-text'>
+      <radio-group bindchange="radioChange">
+        <label wx:for="{{invoiceTypeList}}" wx:key="{{item.codeValue}}" style="margin-right:40rpx">
+            <radio value="{{item.codeValue}}" disabled="{{disabledEdit}}" checked="{{index==invoiceTypeIndex}}"/>{{item.codeName}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>发票抬头</view>
+    <view class='input-text'>
+      <input placeholder="" value="{{info.invoiceTitle}}" disabled="{{disabledEdit}}" data-key="invoiceTitle" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>税号</view>
+    <view class='input-text'>
+      <input placeholder="" value="{{info.taxNo}}" disabled="{{disabledEdit}}" data-key="taxNo" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>更多内容</view>
+    <view class='input-text'>
+      <input placeholder="" value="{{info.remarks}}" disabled="{{disabledEdit}}" data-key="remarks" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'>电子邮件</view>
+    <view class='input-text'>
+      <input placeholder="电子发票将以邮件形式发送到您指定的邮箱" value="{{info.receiverMail}}" disabled="{{disabledEdit}}" data-key="receiverMail" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class="tips" wx:if="{{!disabledEdit}}">
+  <view>注意事项：</view>
+  <view>1.平台只支持根据充值金额进行发票金额开具，赠送金额不能作为开票的依据；</view>
+  <view>2.每一张发票最低开票金额为*，最大金额为*；</view>
+  <view>3.本平台默认开具的发票为公路运输发票普票（非增值税专项发票）；</view>
+  <view>4.其他未尽事项请咨询平台。</view>
+</view>
+<button wx:if="{{!disabledEdit}}" class="b-btn warn" bindtap="save">提交</button>

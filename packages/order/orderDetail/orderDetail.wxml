@@ -1,0 +1,247 @@
+<wxs src="../../../common/wxs/format.wxs" module="format"></wxs>
+<view class="order-info mt_20 clearfix">
+  <block>
+    <view class="type" wx:if="{{order.productType==1}}">
+      <image mode="widthFix" src="/common/images/kd_active.png"></image>
+      <text>快递</text>
+    </view>
+    <view class="type" wx:if="{{order.productType==2}}">
+      <image mode="widthFix" src="/common/images/ky_active.png"></image>
+      <text>快运</text>
+    </view>
+    <view class="type" wx:if="{{order.productType==3}}">
+      <image mode="widthFix" src="/common/images/wl_active.png"></image>
+      <text>物流</text>
+    </view>
+    <view class="type" wx:if="{{order.productType==4}}">
+      <image mode="widthFix" src="/common/images/zc_active.png"></image>
+      <text>整车</text>
+    </view>
+  </block>
+  <!-- 运单号和时间 -->
+  <view class="info">
+    <view class="number clearfix">
+      <view class="label">运单号</view>
+      <view class="text" bind:longpress="copyText" data-label="运单号" data-value="{{item.trackingNum}}">{{order.trackingNum}}</view>
+    </view>
+    <view class="time clearfix">
+      <view class="label">下单时间</view>
+      <view class="text">{{order.billingDate}}</view>
+    </view>
+  </view>      
+  <!-- 运单号和时间 end-->
+  <view class="isPay">{{order.orderOutStateName}}</view>
+</view>
+<view class="tabs mt_20">
+  <view class="item {{showPage==1?'active':''}}" bindtap="tabChange" data-page="1">订单跟踪</view>
+  <view class="item {{showPage==2?'active':''}}" bindtap="tabChange" data-page="2">订单详情</view>
+</view>
+
+<!-- 订单跟踪 -->
+<view class="" wx:if="{{showPage==1}}">
+  <scroll-view scroll-x="true" style="width:100%;">  
+    <view class="trackingNumList">
+      <view class="item {{trackIndex==index?'active':''}}" wx:for="{{tracks}}" wx:key="{{index}}" bindtap="selectTrack" data-index="{{index}}" data-item="{{item}}">{{item.transitTrackingNum}}</view>
+    </view>
+  </scroll-view>
+  <!-- <map id="map" longitude="113.324520" latitude="23.099994" scale="14" show-location style="width: 100%; height: 300px;"></map> -->
+  <view class="noTrack" wx:if="{{trackList.length==0}}">暂无订单跟踪信息~</view>
+  <view class="logistics">
+    <view class="item clearfix" wx:for="{{trackList}}" wx:key="{{index}}">
+      <view class="time">
+        <view>{{item.trackingDate}}</view>
+      </view>
+      <view class="circle" wx:if="{{index!=0&&index!=trackList.length-1}}"></view>
+      <view class="receive" wx:if="{{index==0}}">收</view>
+      <view class="ji" wx:if="{{index==trackList.length-1}}">寄</view>
+      <view class="info">{{item.content}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 订单详情 -->
+<view class="" wx:if="{{showPage==2}}">
+  <view class="site-info">
+    <view class="store">{{order.consignorName}}</view>
+    <view class="content clearfix">
+      <view class="state">寄</view>
+      <view class="info">
+        <view class="sender">
+          <text>{{order.consignorLinkmanName}}</text><text>{{order.consignorBill}}</text>
+        </view>
+        <view class="site">{{order.sourceProvinceName}}{{order.sourceCityName}}{{order.sourceCountyName}}{{order.sourceStreetName}}{{order.sourceAddress}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="site-info">
+    <view class="store">{{order.consigneeName}}</view>
+    <view class="content clearfix">
+      <view class="state shou">收</view>
+      <view class="info">
+        <view class="sender">
+          <text>{{order.consigneeLinkmanName}}</text><text>{{order.consigneeBill}}</text>
+        </view>
+        <view class="site">{{order.destProvinceName}}{{order.destCityName}}{{order.destCountyName}}{{order.destStreetName}}{{order.destAddress}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail mt_20">
+    <view class="title">物品</view>
+    <view class="content clearfix" wx:for="{{goods}}" wx:key="{{index}}">
+      <view class="item">
+        <view class="label">物品</view>
+        <view class="text">{{item.goodsName}}</view>
+      </view>
+      <view class="item">
+        <view class="label">件数</view>
+        <view class="text">{{item.packageNumber}}件</view>
+      </view>
+      <view class="item">
+        <view class="label">重量</view>
+        <view class="text">{{item.packageWeight}}公斤</view>
+      </view>
+      <view class="item">
+        <view class="label">运单类型</view>
+        <view class="text">{{order.orderTypeName}}</view>
+      </view>
+      <view class="item">
+        <view class="label">体积</view>
+        <view class="text">{{item.packageVolume}}立方米</view>
+      </view>
+      <view class="item" wx:if="{{orderExt.receiptTypeName}}">
+        <view class="label">回单类型</view>
+        <view class="text">{{format.formatEmpty(orderExt.receiptTypeName)}}</view>
+      </view>
+      <view class="item" wx:if="{{order.purchaseNum}}">
+        <view class="label">采购单号</view>
+        <view class="text" bind:longpress="copyText" data-label="采购单号" data-value="{{item.purchaseNum}}">{{order.purchaseNum}}</view>
+      </view>
+      <view class="item" wx:if="{{orderExt.purchaseUserId&&warehouseNature==4}}">
+        <view class="label">采购人员</view>
+        <view class="text">{{orderExt.purchaseUserName}}/{{orderExt.purchaseUserPhone}}</view>
+      </view>
+      <view class="item item100" wx:if="{{order.ordNum}}">
+        <view class="label">客户单号</view>
+        <view class="text" bind:longpress="copyText" data-label="客户单号" data-value="{{item.ordNum}}">{{order.ordNum}}</view>
+      </view>
+      <view class="item item100">
+        <view class="label">备注</view>
+        <view class="text">{{order.customerRemarks}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="detail">
+    <view class="title">费用</view>
+    <view class="content clearfix">
+      <!-- <view class="item" wx:if="{{orderFee.paymentType!=3}}">
+        <view class="label">运费</view>
+        <view class="text">¥{{format.formatToZero(orderFee.freightDouble)}}</view>
+      </view> -->
+       <view class="item">
+        <view class="label">保价</view>
+        <view class="text">¥{{format.formatToZero(orderFee.goodsPriceDouble)}}</view>
+      </view>
+      <view class="item" wx:if="{{warehouseNature!=4}}">
+        <view class="label">代收货款</view>
+        <view class="text">¥{{format.formatToZero(orderFee.collectingMoneyDouble)}}</view>
+      </view>
+      <!-- <view class="item" wx:if="{{warehouseNature!=4&&orderFee.paymentType!=3}}">
+        <view class="label">代收手续</view>
+        <view class="text">¥{{format.formatToZero(orderFee.procedureFeeDouble)}}</view>
+      </view>
+      <view class="item" wx:if="{{orderFee.paymentType!=3}}">
+        <view class="label">保费</view>
+        <view class="text">¥{{format.formatToZero(orderFee.insureFeeDouble)}}</view>
+      </view> -->
+      <view class="item" wx:if="{{orderFee.paymentType!=3}}">
+        <view class="label">合计</view>
+        <view class="text">¥{{format.formatToZero(orderFee.orderIncomeDouble)}}</view>
+      </view>
+      <view class="item">
+        <view class="label">结算方式</view>
+        <view class="text">{{orderFee.paymentTypeName}}</view>
+      </view>
+      <view class="item item100" wx:if="{{order.payConsignorName}}">
+        <view class="label">结算三方</view>
+        <view class="text">{{order.payConsignorName}}（{{order.payConsignorStateName}}<text wx:if="{{order.payConsignorState==3&&order.customerRemarks}}">：{{order.customerRemarks}}</text>）</view>
+      </view>
+      <view class="item item100" wx:if="{{orderFee.payDate}}">
+        <view class="label">支付时间</view>
+        <view class="text">{{format.formatEmpty(orderFee.payDate)}}</view>
+      </view>
+    </view>
+    <!-- <view class="total">
+      <view>合计:<text class="red">200.00</text>(现付)</view>
+    </view> -->
+  </view>
+  <!-- 评价模块 -->
+  <!-- 已签收才有评价 -->
+  <!-- <view class="detail" wx:if="{{order.orderOutState==6}}">
+    <view class="title">我的评价</view>
+    <view class="content clearfix">
+      <star></star>
+      <view>匿名评价：神准时，送货快，服务好</view>
+    </view>
+  </view> -->
+  <!-- 待取件 -->
+  <view class="page-bottom-btn detail-bottom">
+    <view wx:if="{{showType1}}">
+      <button bindtap="editOrder">修改运单</button>
+    </view>
+    <view wx:if="{{showType2}}">
+      <button class="cancel" bindtap="showCancelOrder">取消运单</button>
+    </view>
+    <view wx:if="{{showType3}}">
+      <button class="sure" bindtap="showRejectOrder">拒绝</button>
+    </view>
+    <view wx:if="{{showType3}}">
+      <button class="success" bindtap="agreeOrder">确认</button>
+    </view>
+    <view wx:if="{{showType4}}">
+      <button class="pay-btn" bindtap="topay"><image src="/common/images/u3024.png"></image>立即付款</button>
+    </view>
+    <view wx:if="{{showType5}}">
+      <button class="" bindtap="reBilling">重新下单</button>
+    </view>
+    <view wx:if="{{showType6}}">
+      <button class="sure">立即评价</button>
+    </view>
+    <view wx:if="{{showType7}}">
+      <button class="" disabled="true">立即付款</button>
+    </view>
+  </view>
+</view>
+<!-- 订单详情 end -->
+
+<!-- 取消订单弹窗 -->
+<alert id="alertCancelOrder" isshow="{{isShowCancelOrder}}" title="取消订单">
+  <view class='comlist mt_20'>
+    <view class='item'>
+      <view class='label'>取消备注</view>
+      <view class='input-text'>
+        <input type="text" placeholder="请输入取消订单备注" bindinput='inputCancelMark' value='{{orderCancelMark}}'></input>
+      </view>
+    </view>
+  </view>
+  <view class='clearfix page-bottom-btn'>
+    <button class='cancel fl' bindtap='hideCancelOrder'>取消</button>
+    <button class='sure fr' bindtap='cancelOrder'>确认</button>
+  </view>
+</alert>
+<!-- 拒绝订单弹窗 -->
+<alert id="alertCancelOrder" isshow="{{isShowRejectOrder}}" title="拒绝订单">
+  <view class='comlist mt_20'>
+    <view class='item'>
+      <view class='label'>取消备注</view>
+      <view class='input-text'>
+        <input type="text" placeholder="请输入拒绝订单备注" bindinput='inputRejectMark' value='{{ordeRejectMark}}'></input>
+      </view>
+    </view>
+  </view>
+  <view class='clearfix page-bottom-btn'>
+    <button class='cancel fl' bindtap='hideRejectOrder'>取消</button>
+    <button class='sure fr' bindtap='rejectOrder'>确认</button>
+  </view>
+</alert>

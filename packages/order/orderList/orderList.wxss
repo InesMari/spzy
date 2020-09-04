@@ -1,0 +1,115 @@
+@import '/packages/order/order.wxss';
+page{
+  height: 100%;
+}
+.scorll{
+  height: calc(100% - 211rpx);
+}
+.search-box{
+  height: 80rpx;
+  padding: 0 80rpx;
+  background: #fff;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom:1rpx solid #dee2e9;  
+}
+.search-box input{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.search-box .search-icon{
+  position: absolute;
+  left: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.search-box .scan-icon{
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.list .item{
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-bottom:1rpx solid #dee2e9;
+}
+.order-content .sites{
+  padding: 20rpx 30rpx;
+}
+.order-content .sites-left{
+  float: left;
+  width: calc(100% - 130rpx);
+}
+.order-content .sites-left>view{
+  line-height: 45rpx;
+}
+.order-content .sites .weight{
+  line-height: 45rpx;
+  color: #ff6600;
+  float: right;
+}
+.particular{
+  padding: 20rpx 30rpx 20rpx 76rpx;
+}
+.particular .content{
+  width: calc(100% - 180rpx);
+  float: left;
+}
+.particular .content.noCutdown{
+  width: 100%;
+}
+.particular .content-item{
+  position: relative;
+}
+.particular .content-item .label{
+  float: left;
+  width: 120rpx;
+  font-size: 26rpx;
+  line-height: 45rpx;
+}
+.particular .content-item .text{
+  float: left;
+  font-size: 26rpx;
+  line-height: 45rpx;
+  width: calc(100% - 120rpx);
+}
+.particular .content-item .text image{
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+.particular .content-item .sign{
+  position: absolute;
+  top:6rpx;
+  left: -40rpx;
+  height: 30rpx;
+  width:30rpx;
+  border-radius: 50%;
+  color:#fff;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  text-align: center;
+  background: #0aac2c;
+}
+.particular .content-item.consignee .sign{
+  background: #ff6600;
+}
+.particular .countdown{
+  float: right;
+  line-height: 45rpx;
+  color:#ff6600;
+}
+.list .bottom-btn{
+  padding: 12rpx 30rpx;
+  border-top:1rpx solid #dee2e9;
+}
+.loading-icon{
+  width: 30rpx;
+  margin:20rpx auto;
+}
+

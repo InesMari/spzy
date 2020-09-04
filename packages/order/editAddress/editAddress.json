@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "地址",
+  "usingComponents": {
+    "regionPicker": "/common/components/region-picker/regionPicker",
+    "alert": "/common/components/alert/alert",
+    "n-textarea": "/common/components/n-textarea/nTextarea",
+    "headerRemind": "/common/components/header-remind/headerRemind"
+  }
+}

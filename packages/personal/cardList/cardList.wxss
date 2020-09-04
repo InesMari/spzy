@@ -1,0 +1,23 @@
+.cardList{
+  padding: 24rpx;
+}
+.cardList .item{
+  padding: 50rpx;
+  background: #1089db;
+  margin-bottom: 20rpx;
+  border-radius: 5rpx;
+  height: 200rpx;
+}
+.cardList .name{
+  font-size: 30rpx;
+  color: #fff;
+}
+.cardList .carId{
+  margin-bottom: 70px;
+}
+.cardList .carId .num{
+  width: 25%;
+  font-size: 30rpx;
+  color: #fff;
+  float: left;
+}

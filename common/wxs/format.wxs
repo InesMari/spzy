@@ -1,0 +1,91 @@
+var formatCount = function (num) {
+    if (!num) return 0;
+    if (num > 99) return '99+';
+    else return num;
+};
+var toFixed = function (num, fixed) {
+    if (!num) return '0.00';
+    if (!fixed) fixed = 2;
+    typeof num == 'string' && (num = parseInt(num));
+    return num.toFixed(fixed);
+};
+var division = function(amount, num){
+    
+    if (!amount) return '0.00';
+    num = num || 100;
+    typeof amount == 'string' && (amount = parseInt(amount));
+    amount = amount / num;
+    return amount.toFixed(2);
+};
+var formatAmount = function (amount) {
+    return division(amount, 100);
+};
+var formatAmountAbs = function (amount) {
+    if (!amount) return '0.00';
+    typeof amount == 'string' && (amount = parseInt(amount));
+    amount = Math.abs(amount) / 100;
+    return amount.toFixed(2);
+};
+var formatTo_ = function (str) {
+    if (!str) return '--';
+    return str;
+};
+var formatEmpty = function (str) {
+    if (str) return str;
+    else return '';
+};
+var formatToZero = function (str) {
+  if (str) return str;
+  else return 0;
+};
+var multiplication = function(str, num){
+    num = num || 100;
+    if(!str) return '0.00';
+    if(typeof str == 'string') str = parseFloat(str);
+    if(isNaN(str)) return '0.00';
+    str = str * num;
+    return str.toFixed(2);
+};
+
+//取后两位 或者返回-- 
+var divisionString = function(amount, num){
+    if (!amount) return '---';
+    num = num || 100;
+    typeof amount == 'string' && (amount = parseInt(amount));
+    amount = amount / num;
+    return amount.toFixed(2);
+};
+
+//如果是字符串则返回0
+var checkNumber = function(num){
+  if (parseInt(num) == NaN){
+    return 0;
+  }
+  return num;
+}
+
+//金额加上¥
+var addrmb = function (num) {
+  if (!num) {
+    return '';
+  }
+  if (parseInt(num) == NaN) {
+    return '¥'+0;
+  }
+  return '¥' +num;
+}
+
+module.exports = {
+    formatCount: formatCount,
+    toFixed: toFixed,
+    division: division,
+    formatAmount: formatAmount,
+    formatAmountAbs: formatAmountAbs,
+    formatTo_: formatTo_,
+    formatEmpty: formatEmpty,
+    formatToZero: formatToZero,
+    multiplication:  multiplication,
+    divisionString:divisionString,
+    checkNumber: checkNumber,
+    addrmb: addrmb,
+};

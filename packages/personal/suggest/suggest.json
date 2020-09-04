@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "chooseImage": "/common/components/chooseImage/chooseImage",
+    "n-textarea": "/common/components/n-textarea/nTextarea"
+  },
+  "navigationBarTitleText": "建议反馈"
+}

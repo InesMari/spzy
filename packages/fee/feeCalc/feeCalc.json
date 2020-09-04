@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "headerRemind": "/common/components/header-remind/headerRemind",
+    "regionPicker": "/common/components/region-picker/regionPicker"
+  },
+  "navigationBarTitleText": "算费"
+}

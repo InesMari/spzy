@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "nav-bar": "/common/components/navigation-bar/navigation-bar",
+    "nav": "/common/components/nav/nav",
+    "alert": "/common/components/alert/alert"
+  },
+  "navigationBarTitleText": "尚品智运-任易调",
+  "enablePullDownRefresh": true
+}

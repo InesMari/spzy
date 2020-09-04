@@ -1,0 +1,102 @@
+<!-- <scroll-view class="sroll" scroll-y="{{true}}" bindscrolltolower="scrolltolowerHandler"> -->
+<!-- 轮播图 -->
+<view class="banner">
+  <swiper indicator-dots="true" autoplay="true" interval="3000">
+    <swiper-item>
+      <image mode="heightFix" src="../../common/images/u2.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image mode="heightFix" src="../../common/images/u3.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image mode="heightFix" src="../../common/images/u1.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 轮播图上的搜索 -->
+  <view class="suspension">
+    <view class="search-box">
+      <image mode="widthFix" class="scan-icon" bindtap="getCode" src="../../common/images/u74.png"></image>
+      <input placeholder="输入单号" value="{{trackingNum}}" data-key="trackingNum" bindinput="inputSetData" type="number"></input>
+      <image mode="widthFix" bindtap="queryTrackingNum" class="search-icon" src="../../common/images/u76.png"></image>
+    </view>
+    <view class="msg fr">
+      <image class="msg-icon" bindtap="toMsg" mode="widthFix" src="../../common/images/u72.png"></image>
+      <!-- <view class="num">99</view> -->
+    </view>
+  </view>
+</view>
+<view class="h-title" wx:if="{{!unlogin}}">产品介绍</view>
+<view class="product-list clearfix" wx:if="{{!unlogin}}"> 
+  <view class="item" bindtap="showTips" data-type="{{productList[0].codeValue}}" wx:if="{{productList[0]}}">
+    <image src="../../common/images/kd_active.png"></image>
+    <view class="text">{{productList[0].codeName}}</view>
+  </view>
+  <view class="item" bindtap="showTips" data-type="{{productList[1].codeValue}}" wx:if="{{productList[1]}}">
+    <image src="../../common/images/ky_active.png"></image>
+    <view class="text">{{productList[1].codeName}}</view>
+  </view>
+  <view class="item" bindtap="showTips" data-type="{{productList[2].codeValue}}" wx:if="{{productList[2]}}">
+    <image src="../../common/images/wl_active.png"></image>
+    <view class="text">{{productList[2].codeName}}</view>
+  </view>
+  <view class="item" bindtap="showTips" data-type="{{productList[3].codeValue}}" wx:if="{{productList[3]}}">
+    <image src="../../common/images/zc_active.png"></image>
+    <view class="text">{{productList[3].codeName}}</view>
+  </view>
+</view>
+<view class="h-title">运单跟踪</view>
+<view class="common-tab">
+  <view class="item {{mineType==1?'active':''}}" bindtap="setMineType" data-type="1">我寄出的</view>
+  <view class="item {{mineType==2?'active':''}}" bindtap="setMineType" data-type="2">我收到的</view>
+</view>
+<view class="order-list" wx:if="{{!unlogin}}">
+  <view class="item" wx:for="{{orderList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.orderId}}" data-type="{{item.showTypeList}}">
+    <view class="clearfix mb_20"> 
+      <view class="fl"><text class="mr_20">运单号</text><text bind:longpress="copyText" data-label="运单号" data-value="{{item.trackingNum}}">{{item.trackingNum }}</text></view>
+      <view class="fr">{{item.orderOutStateName}}</view>
+    </view>
+    <view class="clearfix">
+      <view class="fl"><text>{{item.cityStartName }}-{{item.cityEndName}}</text></view>
+      <view class="fr fs_20">{{item.showTime}}</view>
+    </view>
+  </view>
+  <view class="pb_20 pt_20 txt_center zt_999" wx:if="{{!isSeeMore&&hasNext}}" bindtap="seeMore">查看更多</view>
+  <view class="nodata" wx:if="{{orderList.length==0}}">没有数据~</view>
+</view>
+<view class="toLogin" wx:if="{{unlogin}}">
+  <view class="text">登录立即查看与您相关的运单信息</view>
+  <button class="b-btn" bindtap="toLogin">立即登录</button>
+</view>
+<!-- </scroll-view>
+<!-- 底部导航栏 -->
+<nav id="nav"></nav>
+
+<!-- 广告 -->
+<view class="popup" wx:if="{{showAd}}">
+  <view class="advertising">
+    <image class="ad" bindtap="toDiscount" mode="widthFix" src="../../common/images/u233.png"></image>
+    <image class="close" bindtap="hideAd" mode="widthFix" src="../../common/images/u235.png"></image>
+  </view>
+</view>
+
+<!-- 快递提示 -->
+<alert isshow="{{isShowTips}}" class="expressAlert" aStyle="width:500rpx;">  
+    <view class="tips">
+      <view class="tips-item clearfix">
+        <view class="label fl">产品名称</view>
+        <view class="text fl">{{productDetail.productTypeName}}</view>
+      </view>
+      <view class="tips-item clearfix">
+        <view class="label fl">服务定价</view>
+        <view class="text fl">{{productDetail.productPricing}}</view>
+      </view>
+      <view class="tips-item clearfix">
+        <view class="label fl">服务区域</view>
+        <view class="text fl">{{productDetail.productRegion}}</view>
+      </view>
+      <view class="tips-item clearfix">
+        <view class="label fl">其他</view>
+        <view class="text fl">{{productDetail.remark}}</view>
+      </view>
+    </view>
+</alert>

@@ -1,0 +1,70 @@
+.comlist .item.company .name{
+  width: 60%;
+  float: left;
+  border-right: 1px solid #dee2e9;
+  box-sizing: border-box;
+}
+.comlist .item.company .linkman{
+  width: 40%;
+  float: left;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.comlist .fullInput .input-text{
+  width: 100%!important;
+  padding: 0;
+  margin:0;
+}
+.comlist .input-text .unit{
+  font-size: 28rpx;
+  color: #1C67B0;
+  text-decoration: underline;
+  line-height: 90rpx;
+  position: absolute;
+  right: 30rpx;
+  top:0;
+  z-index: 9;
+  background: #fff;
+  height: 89rpx;
+}
+.discern-area{
+  background: #fff;
+  padding:20rpx 30rpx;
+}
+.discern-area textarea{
+  line-height: 60rpx;
+  font-size: 30rpx;
+  width: 100%;
+  height: 200rpx;
+}
+.discern .photo{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+.discern .voice{
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 14rpx;
+  float: left;
+  padding-right: 20rpx;
+}
+
+.selectView{
+  padding:0 30rpx 20rpx;
+}
+.selectView .radioGroup{
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.selectView button{
+  background: #ff6600!important;
+}
+
+.recordIcon{
+  width: 80rpx;
+  height: 80rpx;
+  margin:30rpx auto 0;
+}

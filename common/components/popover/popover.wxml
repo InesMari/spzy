@@ -1,0 +1,8 @@
+<view animation="{{animationData}}" class="p-container" bind:touchstart="touchstartHandler" bind:touchend="touchendHandler" bind:touchmove="touchmoveHandler">
+  <view id="shade" class="p-shade" bind:tap="tapHandler"></view>
+  <view class="p-popover extends-class" style="{{width ? 'width:' + width + ';': ''}}">
+    <scroll-view scroll-y="{{true}}" class="scroll-view">
+      <slot></slot>
+    </scroll-view>    
+  </view>
+</view>

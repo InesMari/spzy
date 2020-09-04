@@ -1,0 +1,53 @@
+page{
+  padding-bottom: 150rpx;
+}
+.detail-title{
+  padding: 0 30rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  border-bottom:1rpx solid #dee2e9;
+  background: #fff;
+}
+.detail-list{
+  border-bottom:1rpx solid #dee2e9;
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+.detail-list .item{
+  padding:50rpx;
+  background: #0aac2c;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.detail-list .item.disabled{
+  background: #c0c8d2;
+}
+.detail-list .item>view{
+  color: #fff;
+  font-size: 48rpx;
+}
+.explain{
+  border-bottom:1rpx solid #dee2e9;
+  background: #fff;
+  padding: 20rpx 30rpx 40rpx;
+}
+.explain>view{
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+.bottomView{
+  padding:30rpx;
+  background: #fff;
+  border-top:1rpx solid #dee2e9;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 6rpx rgba(0,0,0,0.1);
+}
+.bottomView>view{
+  line-height: 60rpx;
+  font-size: 48rpx;
+  color:#ff6600;
+}

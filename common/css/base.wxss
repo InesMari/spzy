@@ -1,0 +1,243 @@
+/* 色值标准 */
+
+/* 表单内提示文字：#bdbdbd
+描述性或辅助说明文字：#999
+强调文字（橙）：#ff6600
+强调文字（蓝）：#1089db
+背景色：#f0f5fb
+通用按钮：#5bc240
+头部背景或者其他按钮颜色：#076eca
+线条颜色：#dee2e9 */
+
+page {
+  background: #f0f5fb;
+  color: #333;
+  font-size: 24rpx;
+}
+.ud {
+  text-decoration: underline;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.txt_hide{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.txt_center{
+  text-align: center
+}
+.fw{
+  font-weight: bold;
+}
+.fl {
+  float: left !important;
+}
+.fr {
+  float: right !important;
+}
+.txt_l{
+  text-align: left;
+}
+.txt_r{
+  text-align: right;
+}
+.mt_20 {
+  margin-top: 20rpx;
+}
+.mr_10 {
+  margin-right: 10rpx;
+}
+.mr_20 {
+  margin-right: 20rpx;
+}
+.mr_30 {
+  margin-right: 30rpx!important;
+}
+.mr_40 {
+  margin-right: 40rpx;
+}
+.ml_10 {
+  margin-left: 20rpx;
+}
+.ml_20 {
+  margin-left: 20rpx;
+}
+.ml_120{
+  margin-left: 120rpx;
+}
+.mb_20 {
+  margin-bottom: 20rpx;
+}
+.mb_40 {
+  margin-bottom: 40rpx;
+}
+.pb_20 {
+  padding-bottom: 20rpx !important;
+}
+.pt_20{
+  padding-top: 20rpx !important;
+}
+.plr_30 {
+  padding: 0 30rpx;
+}
+.plr_24{
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+.zt_999 {
+  color: #999 !important;
+}
+.zt_666 {
+  color: #666 !important;
+}
+.zt_333 {
+  color: #333 !important;
+}
+.zt_b3 {
+  color: #b3b3b3 !important;
+}
+.zt_e1 {
+  color: #1E1E1E !important;
+}
+.zt_000 {
+  color: #000 !important;
+}
+.zt_green {
+  color: #5bc240 !important;
+}
+.zt_link, .zt_blue {
+  color: #1089db !important;
+}
+.bg-blue {
+  background: #199ed8 !important;
+}
+.bg-red {
+  background: #e83b13 !important;
+}
+.fs_26,.fs26 {
+  font-size: 26rpx !important;
+}
+.fs_28,.fs28 {
+  font-size: 26rpx !important;
+}
+.fs_30,.fs30 {
+  font-size: 30rpx !important;
+}
+.fs_24,.fs24 {
+  font-size: 24rpx !important;
+}
+.fs_20,.fs20 {
+  font-size: 20rpx !important;
+}
+.fs34 {
+  font-size: 34rpx !important;
+}
+
+image {
+  width: auto;
+  height: auto;
+  display: block;
+}
+.btn {
+  padding: 0 25rpx;
+  min-width: 150rpx;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 60rpx;
+  background: #1c67b0;
+  color: #fff;
+  display: inline-block;
+  font-size: 26rpx;
+  border-radius: 4px;
+}
+.btn.warn{
+  background: #ff6600;
+}
+.btn.success{
+  background: #0aac2c;
+}
+.btn.cancel{
+  background: #d00000;
+}
+/* 整行按钮 */
+.b-btn {
+  color: #fff;
+  height: 88rpx;
+  font-size: 34rpx;
+  margin: 50rpx 25rpx 25rpx 25rpx;
+  background-color: #1c67b0;
+}
+.b-btn.success{
+  background: #0aac2c;
+}
+.b-btn.warn{
+  background: #ff6600;
+}
+/* 底部两个按钮 */
+.page-bottom-btn{
+  margin:50rpx 25rpx 25rpx;
+  height: 88rpx;
+}
+.page-bottom-btn button{
+  height: 88rpx;
+  border-radius: 8rpx;
+  color:#fff;
+  width: 48%;  
+  font-size: 34rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #1c67b0;
+  padding:0;
+}
+.page-bottom-btn .cancel{
+  background: #d00000;
+}
+.page-bottom-btn .sure{
+  background: #ff6600;
+}
+.page-bottom-btn .success{
+  background: #0aac2c;
+}
+.page-bottom-btn .disable{
+  background: #c0c8d2;  
+}
+.red {
+  color: #e83b13 !important;
+}
+.blue {
+  color: #076eca !important;
+}
+.popup_bj {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+input {
+  display: inline-block;
+}
+.link {
+  color: #1089db !important;
+  text-decoration: underline;
+}
+
+textarea{
+  color: #333;
+}
+
+/* 没有数据样式 */
+.nodata{
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin: 60rpx 0;
+}

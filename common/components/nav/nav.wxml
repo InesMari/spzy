@@ -1,0 +1,26 @@
+
+<view class="navigator">
+  <view class="item" bindtap="toHome">
+    <image src="../../images/u114.png"></image>
+    <view>首页</view>
+  </view>
+  <view class="item" bindtap="toFeeCalc" wx:if="{{userType==4 || unlogin}}">
+    <image src="../../images/u229.png"></image>
+    <view style="text-indent: -12rpx;">算费</view>
+  </view>
+  <view class="item" bindtap="toStorage" wx:if="{{userType==2}}">
+    <image src="../../images/u229.png"></image>
+    <view style="text-indent: -12rpx;">入库</view>
+  </view>
+  <view class="item" bindtap="toBilling">
+    <view class="addBtn"></view>
+  </view>
+  <view class="item" bindtap="toOrderList">
+    <image src="../../images/u54.png"></image>
+    <view>订单</view>
+  </view>
+  <view class="item" bindtap="toPersonal">
+    <image src="../../images/u52.png"></image>
+    <view>我的</view>
+  </view>
+</view>

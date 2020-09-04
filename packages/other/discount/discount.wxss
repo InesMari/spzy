@@ -1,0 +1,31 @@
+.list .item{
+  margin-bottom: 20rpx;
+  background: #fff;
+  position: relative;
+}
+.list .item .state{
+  width: 236rpx;
+  position: absolute;
+  top:0;
+  left: 0; 
+}
+.list .item .title{
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #dee2e9;
+}
+.list .item .content{
+  padding:50rpx 0 60rpx;
+  border-bottom: 1rpx solid #dee2e9;
+}
+.list .item .content>view{
+  text-align: center;
+}
+.list .item .bottom-btn{
+  padding:20rpx 0;
+  text-align: center;
+}
+.list .item .bottom-btn button{
+  background: #ff6600;
+}

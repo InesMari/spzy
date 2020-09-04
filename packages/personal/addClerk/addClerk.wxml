@@ -1,0 +1,34 @@
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>店铺名称</view>
+    <view class='input-text'>
+      <input placeholder="店铺名称" value="{{info.warehouseFullName}}" disabled="true" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>店员姓名</view>
+    <view class='input-text'>
+      <input placeholder="请输入店员姓名" value="{{info.userName}}" data-key="userName" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20' style="margin-bottom:0;">
+  <view class='item'>
+    <view class='label'><text class="red">*</text>店员手机</view>
+    <view class='input-text'>
+      <input placeholder="请输入店员手机" value="{{info.userPhone}}" data-key="userPhone" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<headerRemind>注：手机号码为登录账号</headerRemind>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>登录密码</view>
+    <view class='input-text'>
+      <input placeholder="密码默认123456" value="{{info.userPassword}}" data-key="userPassword" bindinput="inputSetData" type="text"></input>
+    </view>
+  </view>
+</view>
+<button class="b-btn" bindtap="save">保存</button>

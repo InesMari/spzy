@@ -1,0 +1,11 @@
+<picker class="timeRangePicker" range="{{range}}" range-key="name" mode="multiSelector" bindchange="changeHandler" value="{{selected}}">
+    <view class="component_value_color extends-class" wx:if="{{isChange}}">
+        {{range[0][selected[0]].name}}{{range[1][selected[1]].name}}
+    </view>
+    <view class="component_value_color extends-class fs26" wx:if="{{!isChange&&dateRangeValue}}">
+        {{dateRangeValue}}
+    </view>
+    <view class="component_placeholder_color extends-class placeholder-class" wx:if="{{!isChange&&!dateRangeValue}}">
+        {{placeholder}}
+    </view>
+</picker>

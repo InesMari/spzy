@@ -1,0 +1,50 @@
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>反馈类型</view>
+    <view class='input-text'>
+      <picker mode="selector" range="{{suggestTypeList}}" bindchange="suggestTypeChange" range-key="codeName"
+        value="{{suggestTypeIndex}}">
+        <view wx:if="{{suggestTypeList.length !=0 &&suggestTypeIndex!=null}}">
+          {{suggestTypeList[suggestTypeIndex].codeName}}
+        </view>
+        <view class="zt_999" wx:else>请选择反馈类型</view>
+      </picker>
+    </view>
+    <image class="bottom-arrow" src="/common/images/u300.png"></image>
+  </view>
+</view>
+<view class='comlist mt_20' wx:if="{{showOrdNum}}">
+  <view class='item'>
+    <view class='label'><text class="red">*</text>运单号</view>
+    <view class='input-text' bindtap='showPurchaseFilter' >
+      <input data-key="customerRemarks" bindinput="inputSetData" value="{{info.customerRemarks}}" placeholder="请输入运单号"></input>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item item-br'>
+    <view class='label'>反馈内容</view>
+    <view class='textarea'>
+      <textarea placeholder="请描述您对平台的建议或吐槽" data-key="customerRemarks" bindinput="inputSetData" value="{{info.customerRemarks}}"></textarea>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item img-item'>
+    <view class='label'>相关图片</view>
+    <view class='img-box'>
+      <chooseImage></chooseImage>
+    </view>
+  </view>
+</view>
+<view class='comlist mt_20'>
+  <view class='item'>
+    <view class='label'><text class="red">*</text>手机号</view>
+    <view class='input-text' bindtap='showPurchaseFilter' >
+      <input data-key="customerRemarks" bindinput="inputSetData" value="{{info.customerRemarks}}" placeholder="方便与您联系"></input>
+    </view>
+  </view>
+</view>
+
+
+<button class="b-btn" bindtap="save">提交</button>

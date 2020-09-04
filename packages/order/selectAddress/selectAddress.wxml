@@ -1,0 +1,44 @@
+<view class="common-tab mt_20" wx:if="{{userType==4&&!addressSelect}}">
+  <view class="item {{addressType==2?'active':''}}" bindtap="changeType" data-type="2">收件人</view>
+  <view class="item {{addressType==1?'active':''}}" bindtap="changeType" data-type="1">寄件人</view>
+</view>
+<view class="search mt_20">
+  <image src="/common/images/u910.png"></image>
+    <input value="{{allName}}" data-key="allName" bindinput='searchList' placeholder="请输入店铺名称/姓名/电话号码/省/市/区"></input>
+</view>
+<view class="addressList mt_20">
+  <view class="item {{item.selected?'selected':''}}" wx:for="{{siteList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="selectItem">
+    <view class="name">
+      <text>{{item.warehouseFullName}}</text>
+      <view class="fr" wx:if="{{userType==4||(item.attributionType==3&&userType==2)}}" >
+        <view class="fl edit" bindtap="editAddress" data-index="{{index}}">
+          <image src="/common/images/u918.png" wx:if="{{item.selected}}"></image>
+          <image src="/common/images/u936.png" wx:if="{{!item.selected}}"></image>
+          <text>编辑</text>
+        </view>
+        <view class="fl edit" bindtap="delAddress" data-index="{{index}}">
+          <image src="/common/images/u914.png" wx:if="{{item.selected}}"></image>
+          <image src="/common/images/u932.png" wx:if="{{!item.selected}}"></image>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+    <view class="info">
+      <view class="linkman">
+        <text class="mr_20">{{item.warehousePeople}}</text><text>{{item.warehousePhone?item.warehousePhone:item.warehouseTelephone}}</text>
+      </view>
+      <view class="site">{{item.addressName}}</view>
+    </view>
+  </view>
+  <view class="nodata" wx:if="{{siteList.length==0}}">没有数据~</view>
+</view>
+<view class="fix-btn" wx:if="{{canSelect || userType==4}}">
+  <block wx:if="{{canSelect}}">
+    <view class="page-bottom-btn" wx:if="{{(userType==4 || addressType==2)&&warehouseNature!=4&&orderTypeId!=2}}">
+      <button class="fl" bindtap="toEditAddress">新增</button>
+      <button class="fr sure" bindtap="sureSelect">确定</button>
+    </view>
+    <button class="b-btn" bindtap="sureSelect" wx:if="{{userType==2&&addressType==1||warehouseNature==4||orderTypeId==2}}">确定</button>
+  </block>
+  <button class="b-btn" bindtap="toEditAddress" wx:if="{{!canSelect&&userType==4}}">新增</button>
+</view>

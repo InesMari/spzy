@@ -1,0 +1,177 @@
+
+.tabs{
+  display: flex;
+  background: #fff;
+  border-bottom:1rpx solid #dee2e9;
+}
+.tabs .item{
+  flex: 1;
+  display: flex;
+  height: 90rpx;
+  font-size: 26rpx;
+  justify-content: center;
+  align-items: center;
+  border-right:1rpx solid #dee2e9;
+}
+.tabs .item.active{
+  background: #ff6600;
+  color: #fff;
+}
+.tabs .item:last-child{
+  border:none;
+}
+.order-info{
+  border-bottom:1rpx solid #dee2e9;
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+.order-info .type{
+  float: left;
+  height: 75rpx;
+  width: 75rpx;
+  border-radius: 50%;
+  border:2rpx solid #ff6600;
+  box-sizing: border-box;
+  text-align: center;
+  color: #ff6600;
+  font-size: 18rpx;
+}
+.order-info .type image{
+  margin:0 auto;
+  width: 40rpx;
+}
+.order-info .state{
+  float: left;
+  height: 75rpx;
+  width: 75rpx;
+  border-radius: 50%;
+  background: #ff6600;
+  text-align: center;
+  line-height: 75rpx;
+  color: #fff;
+  font-size: 18rpx;
+}
+.order-info .state.collect{
+  background: #0aac2c;
+}
+.order-info .state.cancel{
+  background: #1c67b0;
+}
+.order-info .info{
+  margin-left: 10rpx;
+  float: left;
+}
+.order-info .number{
+  margin-bottom: 10rpx;
+}
+.order-info .info .label{
+  float: left;
+  width: 130rpx;
+  font-size: 26rpx;
+}
+.order-info .info .text{
+  float: left;
+  font-size: 26rpx;
+}
+.order-info .speed{
+  font-size: 26rpx;
+  float: left;
+  color:#1089db;
+  margin-left: 10rpx;
+}
+.order-info .price{
+  float: right;
+  line-height: 70rpx;
+  color: #E83B13;
+  font-size: 42rpx;
+}
+.order-info .isPay{
+  font-size: 30rpx;
+  float: right;
+  color:#ff6600;
+  line-height: 75rpx;
+}
+
+
+.site-info{
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+  border-bottom:1rpx solid #dee2e9;
+}
+.site-info .store{
+  line-height: 70rpx;
+  font-size: 30rpx;
+  border-bottom:1rpx dashed #dee2e9;
+}
+.site-info .content{
+  padding:30rpx 0;
+  margin-left: 10rpx;
+}
+.site-info .state{
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  border-radius: 50%;
+  background: #0aac2c;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.site-info .state.shou{
+  background: #ff6600;
+}
+.site-info .info{
+  float: right;
+  width: calc(100% - 80rpx);
+}
+.site-info .info .sender{
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+}
+.site-info .info .site{
+  font-size: 20rpx;
+}
+.detail{
+  background: #fff;
+  border-bottom:1rpx solid #dee2e9;
+  margin-bottom: 20rpx;
+}
+.detail .title{
+  line-height: 90rpx;
+  padding:0 30rpx;
+  font-size: 30rpx;
+}
+.detail .content{
+  border-top:1rpx solid #dee2e9;
+  padding:10rpx 30rpx;
+}
+.detail .item{
+  width: 50%;
+  float: left;
+}
+.detail .item100{
+  width: 100%;
+}
+.detail .item .label{
+  float: left;
+  width: 110rpx;
+  line-height: 46rpx;
+}
+.detail .item .text{
+  float: left;
+  width: calc(100% - 110rpx);
+  line-height: 46rpx;
+}
+.detail .item.long .label{
+  width: 140rpx;
+}
+.detail .total{
+  padding:0 30rpx;
+}
+.detail .total>view{
+  text-align: right;
+  line-height: 70rpx;
+  border-top:1rpx dashed #dee2e9;  
+}

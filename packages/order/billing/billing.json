@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "headerRemind": "/common/components/header-remind/headerRemind",
+    "alert": "/common/components/alert/alert",
+    "popover": "/common/components/popover/popover",
+    "timeRangePicker": "/common/components/timeRangePicker/timeRangePicker",
+    "n-textarea": "/common/components/n-textarea/nTextarea"
+  },
+  "navigationBarTitleText": "下单"
+}
